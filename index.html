@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TPM Knowledge Map</title>
+  <meta name="description" content="An interactive map of technical program management concepts and experience.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="title">
+      <h1>TPM Knowledge Map</h1>
+      <span id="progress" class="progress"></span>
+    </div>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search concepts…" aria-label="Search concepts">
+      <label class="toggle"><input id="stories" type="checkbox" checked> Stories</label>
+      <button id="expand" type="button">Expand all</button>
+      <button id="collapse" type="button">Collapse all</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div class="stage">
+      <svg id="graph" role="img" aria-label="Graph of TPM competencies, concepts and stories"></svg>
+      <div class="legend">
+        <span><i class="dot domain"></i>Competency</span>
+        <span><i class="dot concept"></i>Concept</span>
+        <span><i class="dot story"></i>Story</span>
+        <span class="hint">Click a competency to open it. Drag to move, scroll to zoom.</span>
+      </div>
+    </div>
+    <aside id="panel" class="panel" aria-live="polite" hidden></aside>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
