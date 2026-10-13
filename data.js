@@ -680,15 +680,15 @@ window.TPM_DATA = {
       id: "story-process-improvement",
       type: "story",
       label: "Improving how teams deliver",
-      summary: "A change you introduced to planning or delivery that made teams work better.",
-      related: ["operating-cadence", "flow-metrics", "delivery-metrics", "retrospectives"],
+      summary: "Building a delivery cockpit that made the team's work visible to anyone and moved forecasting from estimates to throughput.",
+      related: ["flow-metrics", "delivery-metrics", "estimation", "status-reporting", "stakeholder-mapping", "operating-cadence"],
       prompts: [
         "What problem did you see in how work was getting done?",
         "What did you change, and how did you get buy-in?",
         "How did you measure whether it helped?",
         "What would you keep or drop next time?"
       ],
-      experience: null,
+      experience: "I built an internal delivery cockpit to act as an information radiator: one place where anyone, from leadership to engineers, could see what the team was building and how it was progressing. It pulls data from the code host and the task tracker, and shows where effort goes, how long work spends in each phase, review flow, release quality, scope changes against each sprint and release baseline, and a forecast of when open work is likely to land.\n\nThe forecast runs on historical throughput, not estimates. Estimates are guesses made before the work is understood; throughput is what the team has actually delivered. For that to hold, items need to be of a fairly consistent size, so the tool came with a behaviour change: small pull requests, each linked one-to-one to a ticket.\n\nOne deliberate choice was keeping per-engineer stats out of sight. The goal was to make the team's work visible, not to make anyone feel monitored, and individual numbers would have undermined trust in the whole thing.\n\nThe biggest change was in the conversations. Instead of \"when will it be done?\", people started asking \"how can we move faster?\" and \"why do we need this now?\". Status questions answered themselves, and the discussion moved to priorities and trade-offs.",
       author: "ai"
     }
   ]

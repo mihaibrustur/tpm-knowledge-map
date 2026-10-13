@@ -277,7 +277,6 @@
 
     var head = el("div");
     head.appendChild(el("span", "badge " + n.type, n.type === "domain" ? "Competency" : n.type === "story" ? "Story" : "Concept"));
-    head.appendChild(el("span", "badge author", n.author === "mine" ? "Written by me" : "Drafted by Claude"));
     p.appendChild(head);
     p.appendChild(el("h2", null, n.label));
     p.appendChild(el("p", null, n.summary));

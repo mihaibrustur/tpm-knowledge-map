@@ -150,7 +150,7 @@ button:focus-visible { outline: 1px solid var(--hud); outline-offset: 2px; }
   margin: 20px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--hud-faint);
 }
 .panel h3::before { content: "// "; color: var(--hud-dim); }
-.panel p { margin: 0 0 8px; }
+.panel p { margin: 0 0 8px; white-space: pre-line; }
 .panel ul { margin: 0; padding-left: 18px; }
 .panel li { margin-bottom: 5px; }
 .panel li::marker { color: var(--hud); content: "▸ "; }
@@ -161,7 +161,6 @@ button:focus-visible { outline: 1px solid var(--hud); outline-offset: 2px; }
 .badge.domain { background: var(--domain); }
 .badge.concept { background: var(--concept); }
 .badge.story { background: var(--story); }
-.badge.author { background: transparent; color: var(--muted); border: 1px solid var(--hud-faint); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
   font: 600 12px var(--hud-font); letter-spacing: .08em; padding: 3px 10px; color: var(--text);

@@ -21,7 +21,7 @@ All content lives in `data.js`.
 
 - `type: "domain"` is a top-level competency. `type: "concept"` has a `parent` domain. `type: "story"` is one of your experiences.
 - `related` lists ids of connected nodes. Links are drawn automatically.
-- `author` is `"ai"` for text drafted by Claude and `"mine"` once you have written or rewritten it. The panel shows which one it is.
+- `author` is `"ai"` for text drafted by Claude and `"mine"` once you have written or rewritten it.
 - For a story, fill `experience` with a short anonymized account (the `prompts` list is the guide). Once filled, the panel shows it.
 
 ## Keeping it anonymous
