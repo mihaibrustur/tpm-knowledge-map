@@ -1022,7 +1022,7 @@ window.TPM_DATA = {
       type: "story",
       label: "Launching a regulated payments platform",
       summary: "Delivering a payment gateway platform under a card-security compliance standard, from compliance sign-off to the first live transaction within months.",
-      related: ["compliance-delivery", "milestones-critical-path", "dependency-mapping", "release-management", "story-high-stakes-release"],
+      related: ["compliance-delivery", "milestones-critical-path", "scope-definition", "cross-team-coordination", "dependency-mapping", "release-management", "story-high-stakes-release"],
       prompts: [
         "What was the platform, and who were the external parties (acquirers, assessors)?",
         "What was the milestone order: compliance sign-off, first live transaction, and when each happened?",
@@ -1030,7 +1030,7 @@ window.TPM_DATA = {
         "What was the hardest decision or crisis, and what did you do?",
         "How did you know it was ready to go live?"
       ],
-      experience: null,
+      experience: "At a software consultancy, I worked on a payment gateway platform for a client, built by four teams under a card-payment security standard. We reached compliance sign-off in about three months and processed the first live transaction in about five.\n\nI was scrum master for two of the four teams and part of the core delivery team that ran the program as a whole. With that group I helped define how the teams worked together and how we communicated with the customer. I also facilitated the workshops that defined and refined scope for the entire program, not only for my two teams.\n\nDay to day, most of my work was coordinating those two teams.\n\nThe moment everything looked at risk came about a month before the compliance deadline, when we realised there were major gaps in the infrastructure. I worked with the DevOps team to break the remaining work into milestones with deadlines, and stayed close to them as we worked through that plan. It took overtime and weekends in the office, and I was there with them. It was tough and stressful, but we got it through.\n\nLooking back, I would put more pressure on the infrastructure upfront, to get it defined much earlier in the process.",
       author: "ai"
     },
     {
