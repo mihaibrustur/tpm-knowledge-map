@@ -5,7 +5,7 @@ A personal, interactive map of technical program management knowledge, used to r
 ## Files
 - `data.js`: all content (domains, concepts, stories). `window.TPM_DATA.nodes`.
 - `app.js`: force graph, drill-down, side panel, search, revisit tracking (localStorage).
-- `index.html`, `styles.css`: page and theming (light/dark).
+- `index.html`, `styles.css`: page and theming (dark only, styled after a space-strategy sensors view).
 - `check-names.sh`: fails if any term in the local, git-ignored `.banned-terms` appears in site files.
 
 ## Hard rules

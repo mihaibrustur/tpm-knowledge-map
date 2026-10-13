@@ -59,12 +59,44 @@
 
   // ---------- svg setup ----------
   var svg = d3.select("#graph");
+  var defs = svg.append("defs");
+  var glow = defs.append("filter").attr("id", "glow").attr("x", "-100%").attr("y", "-100%").attr("width", "300%").attr("height", "300%");
+  glow.append("feGaussianBlur").attr("stdDeviation", 2.5).attr("result", "blur");
+  var merge = glow.append("feMerge");
+  merge.append("feMergeNode").attr("in", "blur");
+  merge.append("feMergeNode").attr("in", "SourceGraphic");
+
+  // starfield sits outside the zoomed group and drifts slowly for parallax
+  var gStars = svg.append("g");
+  d3.range(260).forEach(function () {
+    gStars.append("circle").attr("class", "star")
+      .attr("cx", (Math.random() - 0.5) * 3200).attr("cy", (Math.random() - 0.5) * 2200)
+      .attr("r", Math.random() < 0.9 ? 0.4 + Math.random() * 0.6 : 1.1 + Math.random() * 0.6)
+      .attr("opacity", 0.25 + Math.random() * 0.6);
+  });
+
   var root = svg.append("g");
+
+  // sensors-manager range rings and bearing lines
+  var gGrid = root.append("g").attr("class", "grid");
+  d3.range(12).forEach(function (i) {
+    var a = (i / 12) * Math.PI * 2;
+    gGrid.append("line").attr("x1", 0).attr("y1", 0).attr("x2", Math.cos(a) * 720).attr("y2", Math.sin(a) * 720);
+  });
+  [120, 240, 360, 480, 600, 720].forEach(function (r, i) {
+    gGrid.append("circle").attr("r", r).attr("class", i % 2 ? "major" : null);
+    gGrid.append("text").attr("y", -r - 4).text(String(r / 120).padStart(2, "0") + " · RANGE");
+  });
+
   var gLinks = root.append("g");
   var gNodes = root.append("g");
   var width = 800, height = 600;
 
-  var zoom = d3.zoom().scaleExtent([0.3, 3]).on("zoom", function (ev) { root.attr("transform", ev.transform); });
+  var zoom = d3.zoom().scaleExtent([0.3, 3]).on("zoom", function (ev) {
+    var t = ev.transform;
+    root.attr("transform", t);
+    gStars.attr("transform", "translate(" + t.x * 0.12 + "," + t.y * 0.12 + ") scale(" + (1 + (t.k - 1) * 0.08) + ")");
+  });
   svg.call(zoom).on("dblclick.zoom", null);
 
   var sim = d3.forceSimulation()
@@ -122,8 +154,8 @@
             .on("start", function (ev, d) { if (!ev.active) sim.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; })
             .on("drag", function (ev, d) { d.fx = ev.x; d.fy = ev.y; })
             .on("end", function (ev, d) { if (!ev.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
-        g.append("circle").attr("r", radius);
-        g.append("text").attr("dy", function (d) { return radius(d) + 13; }).text(function (d) { return d.label; });
+        g.each(drawBlip);
+        g.append("text").attr("dy", function (d) { return radius(d) + (d.type === "domain" ? 22 : 18); }).text(function (d) { return d.label; });
         g.append("title").text(function (d) { return d.label; });
         return g;
       },
@@ -136,6 +168,30 @@
     sim.force("link").links(links);
     sim.alpha(0.7).restart();
     updateProgress();
+  }
+
+  // domains are hollow rings with a core, concepts are small blips, stories are diamond-shaped like resources
+  function drawBlip(d) {
+    var g = d3.select(this), r = radius(d);
+    if (d.type === "domain") {
+      g.append("circle").attr("class", "halo").attr("r", r + 9);
+      g.append("circle").attr("class", "shell").attr("r", r).attr("filter", "url(#glow)");
+      g.append("circle").attr("class", "core").attr("r", 5).attr("filter", "url(#glow)");
+    } else if (d.type === "story") {
+      var s = r * 0.8;
+      g.append("rect").attr("class", "core").attr("x", -s).attr("y", -s).attr("width", s * 2).attr("height", s * 2)
+        .attr("transform", "rotate(45)").attr("filter", "url(#glow)");
+    } else {
+      g.append("circle").attr("class", "shell").attr("r", r);
+      g.append("circle").attr("class", "core").attr("r", 4).attr("filter", "url(#glow)");
+    }
+    g.append("circle").attr("class", "mark").attr("r", r + 5);
+    var b = r + 8, l = 5;
+    g.append("path").attr("class", "bracket").attr("d",
+      "M" + -b + "," + (-b + l) + "V" + -b + "H" + (-b + l) +
+      "M" + (b - l) + "," + -b + "H" + b + "V" + (-b + l) +
+      "M" + b + "," + (b - l) + "V" + b + "H" + (b - l) +
+      "M" + (-b + l) + "," + b + "H" + -b + "V" + (b - l));
   }
 
   function styleNodes() {
