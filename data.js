@@ -50,6 +50,13 @@ window.TPM_DATA = {
       summary: "Getting many teams to move together without formal authority over any of them.",
       author: "ai"
     },
+    {
+      id: "principles",
+      type: "domain",
+      label: "Working principles",
+      summary: "The positions I keep coming back to about how delivery should work. Reconstructed from past discussions; each one is a prompt to restate in my own words.",
+      author: "ai"
+    },
 
     // ---------- program planning ----------
     {
@@ -600,6 +607,325 @@ window.TPM_DATA = {
       author: "ai"
     },
 
+    // ---------- more planning, execution and metrics ----------
+    {
+      id: "committed-candidate",
+      type: "concept",
+      parent: "planning",
+      label: "Committed and candidate scope",
+      summary: "Splitting a plan into work the team commits to and work it will pull in if there is room, with capacity held back for interrupts.",
+      why: "Urgent requests, incidents and maintenance always arrive. Committing only part of capacity (often around three quarters, as a starting hypothesis) keeps promises credible instead of breaking them every cycle.",
+      pitfalls: [
+        "Committing 100% of capacity and treating every interrupt as a surprise.",
+        "Candidate work that quietly becomes a commitment in leadership's eyes.",
+        "Picking a buffer size once and never checking it against actual interrupts."
+      ],
+      reflect: [
+        "How do you manage unplanned urgent requests in a fixed-capacity team?",
+        "How did you explain a buffer to leaders who wanted everything committed?"
+      ],
+      related: ["scope-definition", "estimation", "intake-prioritization", "p-promise-less"],
+      author: "ai"
+    },
+    {
+      id: "intake-prioritization",
+      type: "concept",
+      parent: "planning",
+      label: "Intake and prioritization",
+      summary: "A single, visible way for requests to enter the team, get triaged and be ranked against the work already planned.",
+      why: "Without one front door, requests arrive through side channels and the loudest one wins. A clear intake with response targets protects the plan and shows requesters where they stand.",
+      pitfalls: [
+        "Several back doors (direct messages, hallway asks) that bypass the process.",
+        "Ranking that happens in one person's head.",
+        "Treating expedite, maintenance and roadmap work as one undifferentiated queue."
+      ],
+      reflect: [
+        "How would you set up intake and prioritization with a single product owner?",
+        "How did you handle a request that jumped the queue?"
+      ],
+      related: ["committed-candidate", "stakeholder-mapping", "decision-making", "p-explicit-tradeoffs"],
+      author: "ai"
+    },
+    {
+      id: "discovery-readiness",
+      type: "concept",
+      parent: "planning",
+      label: "Discovery and readiness",
+      summary: "Shaping work one cycle ahead with product, design, engineering and QA, so it is understood before anyone commits to building it.",
+      why: "Most mid-sprint surprises are questions nobody asked before the sprint started. A short, shared readiness check catches them while changing course is still cheap.",
+      pitfalls: [
+        "Readiness criteria so heavy that nothing is ever ready.",
+        "Discovery done by product alone, with engineering and QA seeing it at planning.",
+        "Confusing a finished design with a buildable, testable item."
+      ],
+      reflect: [
+        "How do you decide a feature is ready to build?",
+        "What would a good refinement process look like for your current team?"
+      ],
+      related: ["shift-left-quality", "scope-definition", "p-quality-upstream"],
+      author: "ai"
+    },
+    {
+      id: "probabilistic-forecasting",
+      type: "concept",
+      parent: "planning",
+      label: "Probabilistic forecasting",
+      summary: "Using past throughput to simulate many possible futures (a Monte Carlo forecast) and giving dates with a confidence level.",
+      why: "It answers \"when?\" from what the team actually delivered rather than from guesses, and it makes uncertainty visible instead of hiding it in a single date.",
+      pitfalls: [
+        "Feeding it items of wildly different sizes, which breaks the main assumption.",
+        "Too little history, or history from a team that has since changed.",
+        "Presenting the 50% date as if it were a promise."
+      ],
+      reflect: [
+        "How could Monte Carlo forecasting help, and what data makes it unreliable?",
+        "When a release date is fixed, is a probabilistic forecast still useful?"
+      ],
+      related: ["estimation", "flow-metrics", "p-context-forecasting"],
+      author: "ai"
+    },
+    {
+      id: "shift-left-quality",
+      type: "concept",
+      parent: "execution",
+      label: "Shift-left quality",
+      summary: "Bringing testing thinking into design and discovery, so quality problems are found before code is written rather than in regression.",
+      why: "Late QA turns into late releases. When testers help shape the work, testability gaps and edge cases surface while they are cheap to fix.",
+      pitfalls: [
+        "Inviting QA to discovery meetings without giving them a real voice.",
+        "Measuring QA by bugs found late rather than bugs prevented.",
+        "No shared definition of done, so \"implemented\" and \"shippable\" get confused."
+      ],
+      reflect: [
+        "How do you shift QA earlier in feature development?",
+        "Where did a late-found defect delay a release you were running?"
+      ],
+      related: ["discovery-readiness", "release-management", "p-quality-upstream"],
+      author: "ai"
+    },
+    {
+      id: "scope-baselines",
+      type: "concept",
+      parent: "metrics",
+      label: "Scope baselines and drift",
+      summary: "Snapshotting what a sprint or release contained when it started, then comparing it with what actually shipped.",
+      why: "Without a baseline, scope change is invisible and every slip looks like slow execution. With one, you can see what was added, removed or carried over, and talk about it honestly.",
+      pitfalls: [
+        "Mixing defects found in release testing with new scope added late.",
+        "Comparing sprint subtasks with release-level features as if they were the same unit.",
+        "Taking the baseline after the first day's changes instead of at the start."
+      ],
+      reflect: [
+        "How do you measure release scope added after a sprint closed?",
+        "How should release-test defects be counted versus scope changes?"
+      ],
+      related: ["change-control", "metric-definitions", "release-management"],
+      author: "ai"
+    },
+    {
+      id: "metric-definitions",
+      type: "concept",
+      parent: "metrics",
+      label: "Metric definitions",
+      summary: "Being precise about what a metric counts: the unit, the source, the time window and what is in or out.",
+      why: "A release feature, a sprint subtask, a production bug and a regression task are different units. Mixing them produces numbers that look solid and mean nothing.",
+      pitfalls: [
+        "Copying a metric name from a framework without agreeing what it counts here.",
+        "Changing a definition silently, which breaks every trend.",
+        "Trusting a number before checking that the underlying data (like ticket links) is reliable."
+      ],
+      reflect: [
+        "What makes an engineering delivery metric actionable?",
+        "For a metric you used, what were its source, unit and exclusion rules?"
+      ],
+      related: ["delivery-metrics", "scope-baselines", "p-metric-semantics"],
+      author: "ai"
+    },
+    {
+      id: "compliance-delivery",
+      type: "concept",
+      parent: "technical",
+      label: "Compliance-constrained delivery",
+      summary: "Running programs where a security or regulatory standard (for example, card payment security) sets hard gates on scope and timing.",
+      why: "Compliance work has external assessors, fixed evidence requirements and little room to cut corners. Planning has to treat audits and certifications as critical-path milestones.",
+      pitfalls: [
+        "Treating compliance as a checklist at the end instead of a design input.",
+        "Underestimating the time external parties take to review and approve.",
+        "Unclear ownership of each control, so evidence is missing at audit time."
+      ],
+      reflect: [
+        "What makes payments or compliance delivery structurally different?"
+      ],
+      related: ["milestones-critical-path", "non-functional-requirements", "dependency-mapping"],
+      author: "ai"
+    },
+    {
+      id: "mobile-releases",
+      type: "concept",
+      parent: "technical",
+      label: "Mobile release management",
+      summary: "Shipping through app stores: branch cuts, store review, staged rollouts and users who update at their own pace.",
+      why: "Unlike a web service, a mobile release cannot be rolled back instantly, and old versions stay in use. That changes how you think about cadence, risk and what \"deployed\" means.",
+      pitfalls: [
+        "Equating \"submitted to the store\" with \"in users' hands\".",
+        "Skipping staged rollout for a risky change.",
+        "Applying web-style deployment metrics without adapting them."
+      ],
+      reflect: [
+        "What are mobile-specific release challenges compared with web services?"
+      ],
+      related: ["release-management", "delivery-metrics"],
+      author: "ai"
+    },
+    {
+      id: "ai-in-delivery",
+      type: "concept",
+      parent: "technical",
+      label: "AI in delivery management",
+      summary: "Using language models and agents to draft status, release notes and risk signals, and to join tickets with code changes.",
+      why: "A lot of program management is collecting and summarizing information. Automation can take that load off, but only if the inputs are reliable and the output is checked.",
+      pitfalls: [
+        "Generated reports that sound confident on top of incomplete data.",
+        "Automating a broken process instead of fixing it.",
+        "No clear owner for verifying what the tool produces."
+      ],
+      reflect: [
+        "Where can AI agents help delivery management without fabricating confidence?"
+      ],
+      related: ["status-reporting", "metric-definitions"],
+      author: "ai"
+    },
+    {
+      id: "role-split",
+      type: "concept",
+      parent: "leadership",
+      label: "Product and delivery roles",
+      summary: "The product owner owns what and why; the delivery or program manager owns how work flows: blockers, risks, readiness and predictability.",
+      why: "When both roles try to own priorities, or nobody owns flow, teams get mixed signals. A clear split lets each role be decisive in its own lane.",
+      pitfalls: [
+        "The delivery role drifting into deciding priorities.",
+        "The product role absorbing all coordination and burning out.",
+        "Agreeing the split once and never revisiting it as the team grows."
+      ],
+      reflect: [
+        "What does a TPM own that a product manager or engineering manager does not?"
+      ],
+      related: ["raci", "decision-making", "p-accountability"],
+      author: "ai"
+    },
+
+    // ---------- working principles ----------
+    {
+      id: "p-visibility-first",
+      type: "concept",
+      parent: "principles",
+      label: "Visibility before control",
+      summary: "Make scope, ownership, flow and risk visible before adding ceremony or demanding stronger commitments.",
+      why: "Most delivery problems are hidden problems. Showing them often fixes behaviour on its own, at a fraction of the cost of new process.",
+      reflect: ["Restate this in your own words.", "Where did making something visible change behaviour without any new rule?"],
+      related: ["status-reporting", "p-measure-systems"],
+      author: "ai"
+    },
+    {
+      id: "p-separate-horizons",
+      type: "concept",
+      parent: "principles",
+      label: "Separate horizons",
+      summary: "Keep strategy and roadmap, ready-to-build planning, sprint execution, release validation and production rollout as distinct conversations.",
+      why: "Mixing horizons makes every meeting about everything. Separating them lets each one have the right people and the right level of detail.",
+      reflect: ["Restate this in your own words.", "Which horizons were blurred in a team you joined?"],
+      related: ["operating-cadence", "discovery-readiness"],
+      author: "ai"
+    },
+    {
+      id: "p-promise-less",
+      type: "concept",
+      parent: "principles",
+      label: "Promise less, deliver with confidence",
+      summary: "Separate what is genuinely committed from candidate work, and leave room for the interrupts you know will come.",
+      why: "A smaller promise that is kept builds more trust than a big one that slips.",
+      reflect: ["Restate this in your own words.", "When did you revise a commitment based on risk?"],
+      related: ["committed-candidate", "exec-communication"],
+      author: "ai"
+    },
+    {
+      id: "p-quality-upstream",
+      type: "concept",
+      parent: "principles",
+      label: "Quality begins upstream",
+      summary: "Bring QA, product, design and engineering into discovery rather than finding testability gaps at the end.",
+      why: "The cheapest bug is the one that never gets written.",
+      reflect: ["Restate this in your own words."],
+      related: ["shift-left-quality", "discovery-readiness"],
+      author: "ai"
+    },
+    {
+      id: "p-metric-semantics",
+      type: "concept",
+      parent: "principles",
+      label: "Define what you count",
+      summary: "A release feature, a sprint subtask, a production bug and a regression task are not interchangeable units.",
+      why: "Clear definitions are what make a metric trustworthy enough to act on.",
+      reflect: ["Restate this in your own words."],
+      related: ["metric-definitions", "scope-baselines"],
+      author: "ai"
+    },
+    {
+      id: "p-measure-systems",
+      type: "concept",
+      parent: "principles",
+      label: "Measure systems, not theatre",
+      summary: "Metrics should expose bottlenecks and inform decisions. Story points or ceremony compliance are not goals.",
+      why: "Measuring people or rituals invites gaming; measuring the flow of work invites improvement.",
+      reflect: ["Restate this in your own words.", "When are story points useful, and when are they misleading?"],
+      related: ["delivery-metrics", "flow-metrics"],
+      author: "ai"
+    },
+    {
+      id: "p-explicit-tradeoffs",
+      type: "concept",
+      parent: "principles",
+      label: "Make trade-offs explicit",
+      summary: "Urgent work uses capacity. It must push something out or lower confidence in the plan, and that should be said out loud.",
+      why: "Hidden trade-offs turn into missed dates that nobody chose.",
+      reflect: ["Restate this in your own words.", "Give an example of saying no or cutting scope."],
+      related: ["change-control", "intake-prioritization"],
+      author: "ai"
+    },
+    {
+      id: "p-accountability",
+      type: "concept",
+      parent: "principles",
+      label: "Accountability without bureaucracy",
+      summary: "Give every decision and deliverable a real owner, and keep coordination overhead in proportion to the risk.",
+      why: "Ownership makes things happen; heavy process mostly makes things slow.",
+      reflect: ["Restate this in your own words."],
+      related: ["raci", "role-split"],
+      author: "ai"
+    },
+    {
+      id: "p-context-forecasting",
+      type: "concept",
+      parent: "principles",
+      label: "Forecast from evidence",
+      summary: "Prefer historical flow data and honest ranges over precise-looking guesses.",
+      why: "False precision is worse than an honest range, because people plan around it.",
+      reflect: ["Restate this in your own words.", "How do you represent uncertainty in a roadmap commitment?"],
+      related: ["probabilistic-forecasting", "estimation"],
+      author: "ai"
+    },
+    {
+      id: "p-connect-value",
+      type: "concept",
+      parent: "principles",
+      label: "Connect engineering to value",
+      summary: "Tie priorities and delivery to customer outcomes, revenue or cost, resilience and time to market.",
+      why: "Not every ticket is equally valuable. Knowing why something matters is how you decide what to protect when time runs short.",
+      reflect: ["Restate this in your own words.", "How did a technical program lead to measurable savings or revenue?"],
+      related: ["okrs", "leading-lagging"],
+      author: "ai"
+    },
+
     // ---------- stories ----------
     {
       id: "story-high-stakes-release",
@@ -681,7 +1007,7 @@ window.TPM_DATA = {
       type: "story",
       label: "Improving how teams deliver",
       summary: "Building a delivery cockpit that made the team's work visible to anyone and moved forecasting from estimates to throughput.",
-      related: ["flow-metrics", "delivery-metrics", "estimation", "status-reporting", "stakeholder-mapping", "operating-cadence"],
+      related: ["flow-metrics", "delivery-metrics", "estimation", "status-reporting", "stakeholder-mapping", "operating-cadence", "probabilistic-forecasting", "scope-baselines", "ai-in-delivery", "p-visibility-first"],
       prompts: [
         "What problem did you see in how work was getting done?",
         "What did you change, and how did you get buy-in?",
@@ -689,6 +1015,113 @@ window.TPM_DATA = {
         "What would you keep or drop next time?"
       ],
       experience: "I built an internal delivery cockpit to act as an information radiator: one place where anyone, from leadership to engineers, could see what the team was building and how it was progressing. It pulls data from the code host and the task tracker, and shows where effort goes, how long work spends in each phase, review flow, release quality, scope changes against each sprint and release baseline, and a forecast of when open work is likely to land.\n\nThe forecast runs on historical throughput, not estimates. Estimates are guesses made before the work is understood; throughput is what the team has actually delivered. For that to hold, items need to be of a fairly consistent size, so the tool came with a behaviour change: small pull requests, each linked one-to-one to a ticket.\n\nOne deliberate choice was keeping per-engineer stats out of sight. The goal was to make the team's work visible, not to make anyone feel monitored, and individual numbers would have undermined trust in the whole thing.\n\nThe biggest change was in the conversations. Instead of \"when will it be done?\", people started asking \"how can we move faster?\" and \"why do we need this now?\". Status questions answered themselves, and the discussion moved to priorities and trade-offs.",
+      author: "ai"
+    },
+    {
+      id: "story-payments-launch",
+      type: "story",
+      label: "Launching a regulated payments platform",
+      summary: "Delivering a payment gateway platform under a card-security compliance standard, from compliance sign-off to the first live transaction within months.",
+      related: ["compliance-delivery", "milestones-critical-path", "dependency-mapping", "release-management", "story-high-stakes-release"],
+      prompts: [
+        "What was the platform, and who were the external parties (acquirers, assessors)?",
+        "What was the milestone order: compliance sign-off, first live transaction, and when each happened?",
+        "How many teams were involved, and what was your personal scope?",
+        "What was the hardest decision or crisis, and what did you do?",
+        "How did you know it was ready to go live?"
+      ],
+      experience: null,
+      author: "ai"
+    },
+    {
+      id: "story-mapping-savings",
+      type: "story",
+      label: "A location-services rollout that cut costs",
+      summary: "Rolling out mapping and location services that produced significant recurring cost savings.",
+      related: ["system-design", "cross-team-coordination", "okrs", "leading-lagging", "p-connect-value"],
+      prompts: [
+        "What was being replaced or built, and why?",
+        "What was the cost baseline, and how were the savings measured and attributed?",
+        "Who were the stakeholders, and what were the rollout phases?",
+        "What got in the way during rollout, and how did you handle it?"
+      ],
+      experience: null,
+      author: "ai"
+    },
+    {
+      id: "story-b2b-revenue",
+      type: "story",
+      label: "A B2B feature that drove revenue",
+      summary: "Taking a business-facing capability from discovery to launch, tied to a measurable recurring revenue outcome.",
+      related: ["scope-definition", "okrs", "decision-making", "p-connect-value"],
+      prompts: [
+        "What was the feature and who was it for?",
+        "How was the revenue measured, over what period, and how much of it is attributable to this work?",
+        "What was your role compared with product and engineering?",
+        "What did discovery or experiments change about the plan?"
+      ],
+      experience: null,
+      author: "ai"
+    },
+    {
+      id: "story-scaling-coordination",
+      type: "story",
+      label: "Coordinating delivery while R&D scaled",
+      summary: "Being the program manager for a fast-growing R&D organization of many pods, building visibility, roadmaps, OKRs and leadership alignment without heavy ceremony.",
+      related: ["influence", "cross-team-coordination", "operating-cadence", "okrs", "exec-communication", "p-visibility-first"],
+      prompts: [
+        "What was broken when you arrived (async updates, tickets, sprint goals, roadmap)?",
+        "What did you actually put in place, and what did you decide not to add?",
+        "How did you get pods to adopt it without authority over them?",
+        "Name a launch or program it helped, with a before and after.",
+        "What would you do differently?"
+      ],
+      experience: null,
+      author: "ai"
+    },
+    {
+      id: "story-promise-gap",
+      type: "story",
+      label: "Closing the gap between promises and delivery",
+      summary: "Noticing that only part of what product promised was being delivered, and working on commitment calibration.",
+      related: ["committed-candidate", "estimation", "exec-communication", "story-recovering-slip", "p-promise-less"],
+      prompts: [
+        "How was the gap measured: what counted as promised and as delivered, over what period?",
+        "What caused it, in your view?",
+        "Did you drive a change? What was it, and who had to agree?",
+        "What changed afterwards, if anything?"
+      ],
+      experience: null,
+      author: "ai"
+    },
+    {
+      id: "story-sprint-release-scope",
+      type: "story",
+      label: "Reconciling sprint scope with what ships",
+      summary: "On a weekly sprint-and-release cadence, making the difference between frozen sprint scope, late additions and release-test defects visible.",
+      related: ["scope-baselines", "metric-definitions", "release-management", "change-control", "mobile-releases"],
+      prompts: [
+        "What was the cadence, and where did scope and releases drift apart?",
+        "Why did sprint subtasks and release features not line up as units?",
+        "What did you measure, and what did you deliberately keep separate?",
+        "What did the data show, and did it change any decisions?"
+      ],
+      experience: null,
+      author: "ai"
+    },
+    {
+      id: "story-shift-left",
+      type: "story",
+      label: "Bringing QA into discovery",
+      summary: "Proposing weekly prioritization and refinement plus a discovery workshop so product, design, engineering and QA shape features together.",
+      related: ["shift-left-quality", "discovery-readiness", "intake-prioritization", "p-quality-upstream"],
+      prompts: [
+        "What problem prompted it (late QA, emergencies, slippage)?",
+        "Which parts were actually adopted, and which stayed proposals?",
+        "Who attended, and what decisions changed because of it?",
+        "Any evidence: defects avoided, time saved, fewer surprises?"
+      ],
+      experience: null,
       author: "ai"
     }
   ]

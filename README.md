@@ -28,7 +28,7 @@ All content lives in `data.js`.
 
 This repository will be public. Do not put company, client or person names, or product names that identify them, in any file.
 
-Create a local file named `.banned-terms` (one term per line, it is git-ignored so the list itself is never published) and run:
+Create a local file named `.banned-terms` (one term per line, it is git-ignored so the list itself is never published; start a line with `=` to match a name case-sensitively when it is also a common word) and run:
 
 ```
 ./check-names.sh
