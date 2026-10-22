@@ -3,7 +3,9 @@
 A personal, interactive map of technical program management knowledge, used to revise concepts and to highlight experience in interviews. Static site (HTML, CSS, vanilla JS, D3 from a CDN), no build step, hosted on GitHub Pages.
 
 ## Files
-- `data.js`: all content (domains, concepts, stories). `window.TPM_DATA.nodes`.
+- `tpm-knowledge/`: all content as markdown, one file per node (format in its README).
+- `build.js`: compiles `tpm-knowledge/` into `data.js` (`node build.js`). Never edit `data.js` by hand; rebuild and commit both.
+- `data.js`: generated `window.TPM_DATA.nodes`, loaded by the site.
 - `app.js`: force graph, drill-down, side panel, search, revisit tracking (localStorage).
 - `index.html`, `styles.css`: page and theming (dark only, styled after a space-strategy sensors view).
 - `check-names.sh`: fails if any term in the local, git-ignored `.banned-terms` appears in site files.
@@ -14,9 +16,9 @@ A personal, interactive map of technical program management knowledge, used to r
 - Run `./check-names.sh` before every commit or push.
 
 ## Content conventions
-- Node types: `domain`, `concept` (has `parent`), `story`. Links come from `parent` and `related`.
-- `author`: `"ai"` for text drafted by Claude, `"mine"` once the owner has written or rewritten it. Be explicit about which is which; never mark AI text as `"mine"`.
-- Stories have `experience: null` until the owner writes them. Do not invent experience. Interview the owner, keep it anonymous, then fill `experience`.
+- Node types: `domain` (a folder's `index.md`), `concept` (a file in a domain folder, which is its `parent`), `story` (in `stories/`). The id is the file name. Links come from `parent` and `related`.
+- `author`: `ai` for text drafted by Claude, `mine` once the owner has written or rewritten it. Be explicit about which is which; never mark AI text as `mine`.
+- Stories have an empty `## Experience` section until the owner writes them. Do not invent experience. Interview the owner, keep it anonymous, then fill `experience`.
 
 ## Working style
 - The owner wants to learn or revisit concepts while building. Explain a concept briefly when adding or editing it, and pressure-test ideas instead of validating automatically. Acknowledge trade-offs rather than calling choices "the best".

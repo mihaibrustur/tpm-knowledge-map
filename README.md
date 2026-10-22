@@ -17,12 +17,18 @@ Deep links work: `.../#risk-register` opens that node directly, handy to share o
 
 ## Edit content
 
-All content lives in `data.js`.
+All content lives as markdown in `tpm-knowledge/` (see its README for the format). `data.js` is generated from it, so do not edit it by hand. After changing the markdown, run:
 
-- `type: "domain"` is a top-level competency. `type: "concept"` has a `parent` domain. `type: "story"` is one of your experiences.
-- `related` lists ids of connected nodes. Links are drawn automatically.
-- `author` is `"ai"` for text drafted by Claude and `"mine"` once you have written or rewritten it.
-- For a story, fill `experience` with a short anonymized account (the `prompts` list is the guide). Once filled, the panel shows it.
+```
+node build.js
+```
+
+and commit both the markdown and the regenerated `data.js` (GitHub Pages serves the files as they are, with no build step).
+
+- A folder like `01-planning/` is a top-level competency (its `index.md`). Each other file in it is a concept. `stories/` holds your experiences.
+- `related` in the front matter lists ids (file names) of connected nodes. Links are drawn automatically.
+- `author` is `ai` for text drafted by Claude and `mine` once you have written or rewritten it.
+- For a story, write a short anonymized account under `## Experience` (the `## Prompts` list is the guide). Once filled, the panel shows it.
 
 ## Keeping it anonymous
 
