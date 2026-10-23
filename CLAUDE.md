@@ -3,8 +3,8 @@
 A personal, interactive map of technical program management knowledge, used to revise concepts and to highlight experience in interviews. Static site (HTML, CSS, vanilla JS, D3 from a CDN), no build step, hosted on GitHub Pages.
 
 ## Files
-- `tpm-knowledge/`: all content as markdown, one file per node (format in its README).
-- `build.js`: compiles `tpm-knowledge/` into `data.js` (`node build.js`). Never edit `data.js` by hand; rebuild and commit both.
+- `tpm-knowledge`: git-ignored symlink to the notes folder in the owner's Obsidian vault. All content lives there as markdown, one file per node (format in its README). Edit notes there, not in the repo.
+- `build.js`: compiles `tpm-knowledge/` into `data.js` (`node build.js`). Never edit `data.js` by hand; rebuild and commit it.
 - `data.js`: generated `window.TPM_DATA.nodes`, loaded by the site.
 - `app.js`: force graph, drill-down, side panel, search, revisit tracking (localStorage).
 - `index.html`, `styles.css`: page and theming (dark only, styled after a space-strategy sensors view).

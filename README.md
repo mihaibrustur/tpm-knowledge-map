@@ -17,13 +17,19 @@ Deep links work: `.../#risk-register` opens that node directly, handy to share o
 
 ## Edit content
 
-All content lives as markdown in `tpm-knowledge/` (see its README for the format). `data.js` is generated from it, so do not edit it by hand. After changing the markdown, run:
+All content lives as markdown notes outside this repo (for example in an Obsidian vault; see the README in that folder for the format). `tpm-knowledge` in the repo root is a git-ignored link to that folder. Create it once:
+
+```
+ln -s /path/to/your/notes/tpm-knowledge tpm-knowledge
+```
+
+`data.js` is generated from the notes, so do not edit it by hand. After changing them, run:
 
 ```
 node build.js
 ```
 
-and commit both the markdown and the regenerated `data.js` (GitHub Pages serves the files as they are, with no build step).
+and commit the regenerated `data.js` (GitHub Pages serves the files as they are, with no build step). The notes themselves are not in git.
 
 - A folder like `01-planning/` is a top-level competency (its `index.md`). Each other file in it is a concept. `stories/` holds your experiences.
 - `related` in the front matter lists ids (file names) of connected nodes. Links are drawn automatically.
