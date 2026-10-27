@@ -23,6 +23,7 @@ A personal, interactive map of technical program management knowledge, used to r
 ## Working style
 - The owner wants to learn or revisit concepts while building. Explain a concept briefly when adding or editing it, and pressure-test ideas instead of validating automatically. Acknowledge trade-offs rather than calling choices "the best".
 - Keep writing calm, clear and simple. No corporate fluff or heavy frameworks.
+- The owner keeps a private writing-voice guide at `writing/how-i-write.md`, in the same vault as the `tpm-knowledge` folder. Follow it when refining dictation, and update it after each story: add voice traits you notice, record every correction the owner makes to a draft under "What my corrections taught", and add a line to its change log. Never copy it into this repo.
 
 ## Next steps
 1. Fill in the story nodes one at a time (start with the high-stakes release or the cross-team dependency).
