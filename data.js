@@ -1464,6 +1464,31 @@ window.TPM_DATA = {
       "author": "ai"
     },
     {
+      "id": "story-external-delivery",
+      "type": "story",
+      "label": "Delivering for an external customer abroad",
+      "summary": "Building a bespoke version of an internal product for an external customer in another country, where unknown regulations and compounding delays forced a new delivery date.",
+      "prompts": [
+        "What made working for an external customer different from building internally?",
+        "What risk surfaced that nobody had anticipated, and how did it compound with others?",
+        "How did you handle the conversation about a missed date?",
+        "What would you do differently to catch unknowns like that earlier?"
+      ],
+      "experience": "My team built and supported an internal product made of a long chain of work: hardware was built and shipped, field teams used it to collect data, engineering processed that data, machine learning teams turned it into features, and operations turned the result into live data customers could safely use. Every step had risks and dependencies on other teams, but internally we knew them, so we could anticipate them and plan around them.\n\nThen the company sold the capability to external customers, and my team was asked to build a bespoke solution for one of them while keeping the internal product going. Working with a third party in another country brought risks we were not used to.\n\nOne of them was shipping. We had to send battery-powered data-collection hardware to a country with very strict import rules. We packed and marked it as fragile freight with batteries and included the manufacturer's documentation, but local law required additional documents we did not have, and the customer did not know about them either. The shipment was held in a warehouse in the receiving country for three to four weeks while we sorted out the paperwork, and we came close to the warehouse's holding limit, after which it would have been sent back.\n\nThat delay compounded with another. Negotiations had already pushed the project start later than planned. On its own, a long regional public holiday fitted the plan; with a month of shipping delay, the work landed right in it. The date we had agreed could no longer be met.\n\nWe had a tough conversation with the customer and agreed a new date, three to four months after the original one. What made that conversation possible was that everything had been documented along the way: customer communications, scoping decisions, and the plans for shipping, data collection and engineering. Nothing in that record touched on import or export regulation; it was a process we did not know existed and learned about late. The customer accepted the facts, and we delivered on the new date.\n\nLooking back, I do not expect myself as a program manager to know every regulation in every country we work in, but it is my job to engage the people who do. I would look at compliance and regulation earlier, ask what risks could come from them, and plan what we need to do to mitigate them.",
+      "related": [
+        "dependency-mapping",
+        "risk-register",
+        "mitigation-contingency",
+        "compliance-delivery",
+        "exec-communication",
+        "change-control",
+        "stakeholder-mapping",
+        "milestones-critical-path",
+        "p-explicit-tradeoffs"
+      ],
+      "author": "ai"
+    },
+    {
       "id": "story-high-stakes-release",
       "type": "story",
       "label": "A high-stakes release",
