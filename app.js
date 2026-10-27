@@ -167,7 +167,6 @@
     sim.nodes(vis);
     sim.force("link").links(links);
     sim.alpha(0.7).restart();
-    updateProgress();
   }
 
   // domains are hollow rings with a core, concepts are small blips, stories are diamond-shaped like resources
@@ -330,18 +329,12 @@
       btn.type = "button";
       btn.addEventListener("click", function () {
         if (revisited.has(n.id)) revisited.delete(n.id); else revisited.add(n.id);
-        saveRevisited(); styleNodes(); updateProgress(); showPanel(n);
+        saveRevisited(); styleNodes(); showPanel(n);
       });
       row.appendChild(btn);
       p.appendChild(row);
     }
     p.scrollTop = 0;
-  }
-
-  function updateProgress() {
-    var concepts = nodes.filter(function (n) { return n.type === "concept"; });
-    var done = concepts.filter(function (n) { return revisited.has(n.id); }).length;
-    document.getElementById("progress").textContent = done + " of " + concepts.length + " concepts revisited";
   }
 
   // ---------- controls ----------
