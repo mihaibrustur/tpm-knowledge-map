@@ -9,6 +9,31 @@ window.TPM_DATA = {
       "author": "ai"
     },
     {
+      "id": "capacity-allocation",
+      "type": "concept",
+      "parent": "planning",
+      "label": "Capacity allocation across roadmaps",
+      "summary": "Agreeing upfront what share of engineering capacity goes to each roadmap (for example business features versus remediation or maintenance) and which side wins in a clash.",
+      "why": "Non-feature work like security remediation or technical debt always loses to features in a case-by-case fight. A fixed split, a default rule and an exception route make the trade-off once, in advance, instead of in every planning meeting.",
+      "pitfalls": [
+        "A split that exists on paper but is never checked against what teams actually worked on.",
+        "A default rule with no exception route, so genuinely critical items wait too.",
+        "A share so small that the work it protects drags on for far longer than planned."
+      ],
+      "reflect": [
+        "How did you protect capacity for work that competes with features?",
+        "Who decided when the default rule did not apply?"
+      ],
+      "related": [
+        "committed-candidate",
+        "intake-prioritization",
+        "tech-debt",
+        "incident-management",
+        "p-explicit-tradeoffs"
+      ],
+      "author": "ai"
+    },
+    {
       "id": "committed-candidate",
       "type": "concept",
       "parent": "planning",
@@ -170,6 +195,30 @@ window.TPM_DATA = {
       "author": "ai"
     },
     {
+      "id": "rolling-wave",
+      "type": "concept",
+      "parent": "planning",
+      "label": "Rolling-wave planning",
+      "summary": "Planning the near term in detail and the further future only roughly: define and build the first milestone while the next ones are still being shaped.",
+      "why": "Gated processes make teams wait until every phase is fully specified. Rolling-wave planning lets work start on what is already clear, and uses what you learn from the first milestone to define the next.",
+      "pitfalls": [
+        "Starting to build with nothing defined beyond the current milestone, so there is no sense of direction.",
+        "Never revisiting the rough later milestones until they are suddenly urgent.",
+        "Calling it rolling-wave when it is really skipping discovery."
+      ],
+      "reflect": [
+        "How did you get a team building before the whole plan was written?",
+        "What did you learn from a first milestone that changed the next ones?"
+      ],
+      "related": [
+        "milestones-critical-path",
+        "discovery-readiness",
+        "scope-definition",
+        "wa-small-steps"
+      ],
+      "author": "ai"
+    },
+    {
       "id": "scope-definition",
       "type": "concept",
       "parent": "planning",
@@ -248,7 +297,7 @@ window.TPM_DATA = {
       "parent": "execution",
       "label": "Release management",
       "summary": "Planning and running the steps that take finished work safely into production and to users.",
-      "why": "The release is where many teams' work meets real users at once. Clear go/no-go criteria, rollback plans and ownership reduce the blast radius when something goes wrong.",
+      "why": "The release is where many teams' work meets real users at once. Clear go/no-go criteria, rollback plans and ownership reduce the blast radius when something goes wrong. For products where a bad release is costly, staged rollouts in waves ordered by customer risk trade speed for safety on purpose, so a long lead time to customers can be a deliberate choice.",
       "pitfalls": [
         "No agreed go/no-go criteria, so the decision becomes a debate on the day.",
         "A rollback plan that has never been tested.",
@@ -256,7 +305,8 @@ window.TPM_DATA = {
       ],
       "reflect": [
         "What were the go/no-go criteria on a release you ran?",
-        "Have you ever called a no-go? How did you make the case?"
+        "Have you ever called a no-go? How did you make the case?",
+        "How did you decide the size and order of rollout waves?"
       ],
       "related": [
         "ci-cd",
@@ -323,7 +373,7 @@ window.TPM_DATA = {
       "parent": "risk",
       "label": "Escalation",
       "summary": "Bringing a problem to people with more authority when the team cannot resolve it within its own scope.",
-      "why": "Escalating early and clearly is a tool, not a failure. It gets decisions made while there are still options.",
+      "why": "Escalating early and clearly is a tool, not a failure. It gets decisions made while there are still options. Where the same kind of conflict keeps recurring, a standing escalation forum with agreed criteria is faster and fairer than deciding case by case.",
       "pitfalls": [
         "Escalating too late, after the options have run out.",
         "Escalating a complaint instead of a decision with clear options.",
@@ -335,7 +385,8 @@ window.TPM_DATA = {
       ],
       "related": [
         "exec-communication",
-        "conflict-resolution"
+        "conflict-resolution",
+        "capacity-allocation"
       ],
       "author": "ai"
     },
@@ -580,14 +631,17 @@ window.TPM_DATA = {
       "pitfalls": [
         "No clear incident lead, so everyone debugs and nobody communicates.",
         "Post-incident reviews that assign blame.",
-        "Action items from reviews that are never completed."
+        "Action items from reviews that are never completed.",
+        "Remediation work that competes with features and stalls without explicit capacity and an escalation route."
       ],
       "reflect": [
         "What was your role in an incident, and what changed afterwards?"
       ],
       "related": [
         "release-management",
-        "retrospectives"
+        "retrospectives",
+        "capacity-allocation",
+        "escalation"
       ],
       "author": "ai"
     },
@@ -688,7 +742,7 @@ window.TPM_DATA = {
       "parent": "metrics",
       "label": "Delivery metrics (DORA)",
       "summary": "Deployment frequency, lead time for changes, change failure rate and time to restore service.",
-      "why": "They give a balanced view of speed and stability, so teams do not improve one at the expense of the other.",
+      "why": "They give a balanced view of speed and stability, so teams do not improve one at the expense of the other. Treat them as smoke signals that start a conversation with the team, not as verdicts.",
       "pitfalls": [
         "Using them to compare or rank teams.",
         "Chasing the number instead of the underlying practice.",
@@ -699,7 +753,8 @@ window.TPM_DATA = {
       ],
       "related": [
         "ci-cd",
-        "flow-metrics"
+        "flow-metrics",
+        "p-measure-systems"
       ],
       "author": "ai"
     },
@@ -709,18 +764,20 @@ window.TPM_DATA = {
       "parent": "metrics",
       "label": "Flow metrics",
       "summary": "Cycle time, throughput and work in progress, which describe how work moves through a team.",
-      "why": "They give an evidence-based basis for forecasts and show where work waits, which is usually more than where it is worked on.",
+      "why": "They give an evidence-based basis for forecasts and show where work waits, which is usually more than where it is worked on. Review and merge wait time is often the hidden bulk of cycle time.",
       "pitfalls": [
         "Too much work in progress, which slows everything down.",
         "Forecasting from story points alone instead of actual throughput.",
-        "Looking at averages and missing the long tail of slow items."
+        "Looking at averages and missing the long tail of slow items.",
+        "Pull requests that sit in review or merge queues with nobody nudging them."
       ],
       "reflect": [
         "Where did work wait the longest in a team you supported?"
       ],
       "related": [
         "estimation",
-        "delivery-metrics"
+        "delivery-metrics",
+        "wa-review-kindly"
       ],
       "author": "ai"
     },
@@ -755,7 +812,8 @@ window.TPM_DATA = {
       "pitfalls": [
         "Copying a metric name from a framework without agreeing what it counts here.",
         "Changing a definition silently, which breaks every trend.",
-        "Trusting a number before checking that the underlying data (like ticket links) is reliable."
+        "Trusting a number before checking that the underlying data (like ticket links) is reliable.",
+        "The same thing counted differently in two systems, such as customer-reported bugs that never reach engineering's bug count."
       ],
       "reflect": [
         "What makes an engineering delivery metric actionable?",
@@ -778,14 +836,17 @@ window.TPM_DATA = {
       "pitfalls": [
         "Key results that are task lists rather than outcomes.",
         "Too many objectives, so nothing is really a priority.",
-        "Setting goals and not checking them until the end of the period."
+        "Setting goals and not checking them until the end of the period.",
+        "Cascading OKRs mechanically down to every team, which stops working as the organization grows."
       ],
       "reflect": [
-        "How did you tie a program's milestones to a measurable outcome?"
+        "How did you tie a program's milestones to a measurable outcome?",
+        "How did you leave room for engineering to shape the work that moves an OKR?"
       ],
       "related": [
         "scope-definition",
-        "leading-lagging"
+        "leading-lagging",
+        "right-sized-process"
       ],
       "author": "ai"
     },
@@ -868,7 +929,7 @@ window.TPM_DATA = {
       "parent": "leadership",
       "label": "Influence without authority",
       "summary": "Getting people who do not report to you to commit, through shared goals, trust and clear reasoning.",
-      "why": "It is the core of the TPM role. Most of the people a program depends on have their own managers and priorities.",
+      "why": "It is the core of the TPM role. Most of the people a program depends on have their own managers and priorities. One of the fastest ways to earn influence as a newcomer is to win over the managers teams already listen to, so a change is backed by them and not only asked for by you.",
       "pitfalls": [
         "Relying on borrowed authority (\"the VP wants this\") too often.",
         "Asking for help without explaining why it matters to them.",
@@ -879,7 +940,8 @@ window.TPM_DATA = {
       ],
       "related": [
         "stakeholder-mapping",
-        "cross-team-coordination"
+        "cross-team-coordination",
+        "right-sized-process"
       ],
       "author": "ai"
     },
@@ -906,6 +968,30 @@ window.TPM_DATA = {
       "author": "ai"
     },
     {
+      "id": "right-sized-process",
+      "type": "concept",
+      "parent": "leadership",
+      "label": "Right-sized process",
+      "summary": "Matching how much process a team has to its size, risk and maturity, and changing it as those change.",
+      "why": "A process that works for a few dozen people, where one coordinator can follow every item, becomes bloated as the organization grows. Process that stops fitting gets worked around, which is worse than having less of it.",
+      "pitfalls": [
+        "Keeping a process because it worked at a smaller size.",
+        "Adding steps for every new problem and never removing any.",
+        "Gated phases that make teams wait on each other instead of overlapping."
+      ],
+      "reflect": [
+        "Which process did you outgrow, and what replaced it?",
+        "How did you notice a process had become bloated?"
+      ],
+      "related": [
+        "operating-cadence",
+        "team-structure",
+        "p-principles-over-process",
+        "p-accountability"
+      ],
+      "author": "ai"
+    },
+    {
       "id": "role-split",
       "type": "concept",
       "parent": "leadership",
@@ -924,6 +1010,30 @@ window.TPM_DATA = {
         "raci",
         "decision-making",
         "p-accountability"
+      ],
+      "author": "ai"
+    },
+    {
+      "id": "team-structure",
+      "type": "concept",
+      "parent": "leadership",
+      "label": "Team structure for delivery",
+      "summary": "How teams are cut: around components (one team per part of the system) or around outcomes (cross-functional teams, or pods, that own a slice of the product end to end).",
+      "why": "Component teams make almost every feature a cross-team dependency, because one feature touches several components. Cross-functional pods can ship most work on their own, leaving a smaller set of cross-pod dependencies that need a shared forum.",
+      "pitfalls": [
+        "Restructuring without a way to handle the dependencies that remain between pods.",
+        "Pods that own a roadmap but not the skills to deliver it.",
+        "Treating the structure as fixed while the product and organization keep changing."
+      ],
+      "reflect": [
+        "When did team structure, rather than people, cause delivery problems?",
+        "How were cross-team dependencies raised and resolved after a restructure?"
+      ],
+      "related": [
+        "cross-team-coordination",
+        "dependency-mapping",
+        "role-split",
+        "right-sized-process"
       ],
       "author": "ai"
     },
@@ -1035,6 +1145,24 @@ window.TPM_DATA = {
       "author": "ai"
     },
     {
+      "id": "p-principles-over-process",
+      "type": "concept",
+      "parent": "principles",
+      "label": "Principles scale better than process",
+      "summary": "A clear set of principles is foundational for a team, whether R&D is twenty people or a hundred. It is the core operating model.",
+      "why": "Introduce them early. As new people join, they adopt the principles because there are already others around them they can learn them from.",
+      "reflect": [
+        "Where did principles hold up when a process did not?"
+      ],
+      "related": [
+        "right-sized-process",
+        "team-structure",
+        "operating-cadence",
+        "p-accountability"
+      ],
+      "author": "mine"
+    },
+    {
       "id": "p-promise-less",
       "type": "concept",
       "parent": "principles",
@@ -1100,6 +1228,180 @@ window.TPM_DATA = {
         "p-measure-systems"
       ],
       "author": "ai"
+    },
+    {
+      "id": "agreements",
+      "type": "domain",
+      "label": "Team working agreements",
+      "summary": "The habits a product development team holds each other to. Each one says what to do, why it matters, and what it looks like day to day.",
+      "author": "mine"
+    },
+    {
+      "id": "wa-definition-of-done",
+      "type": "concept",
+      "parent": "agreements",
+      "label": "Definition of done",
+      "summary": "A ticket is done only when all of the conditions below are true.",
+      "why": "A shared definition of done stops \"implemented\" being confused with \"shippable\", and makes status mean the same thing to everyone.",
+      "practice": [
+        "Its pull requests are merged and linked to the ticket.",
+        "The tests are in place and passing.",
+        "The code has been reviewed and approved.",
+        "It has passed QA.",
+        "Docs or release notes are updated, where relevant.",
+        "The ticket is in the right status."
+      ],
+      "related": [
+        "shift-left-quality",
+        "release-management",
+        "wa-test-before-handoff",
+        "wa-statuses"
+      ],
+      "author": "ai"
+    },
+    {
+      "id": "wa-own-the-sprint",
+      "type": "concept",
+      "parent": "agreements",
+      "label": "We plan the sprint and own it",
+      "summary": "Each of us puts our own planned work into the sprint, and what we finish in a sprint goes into the next release.",
+      "why": "The sprint is only useful if it shows the real plan. It is how we see capacity, spot overload, and know what is going into each release.",
+      "practice": [
+        "By the start of the sprint, add every task you plan to deliver. Each of us owns getting our own tasks in.",
+        "Plan with the release in mind: what is done this sprint reaches users in the next release.",
+        "If your scope changes mid-sprint, update the sprint and tell the team."
+      ],
+      "related": [
+        "operating-cadence",
+        "committed-candidate",
+        "scope-baselines",
+        "wa-statuses"
+      ],
+      "author": "mine"
+    },
+    {
+      "id": "wa-raise-blockers",
+      "type": "concept",
+      "parent": "agreements",
+      "label": "We raise blockers early",
+      "summary": "A blocker raised on day one is a small problem. The same blocker raised at the end of the sprint is a missed release.",
+      "why": "The earlier a blocker is visible, the more options there are to work around it.",
+      "practice": [
+        "Stuck for more than half a day? Post in the team channel with what you have tried and what you need.",
+        "If a milestone or sprint commitment is at risk, flag it the day you know, not when it is due.",
+        "When you see someone else's blocker you can help with, jump in."
+      ],
+      "related": [
+        "escalation",
+        "risk-register",
+        "dependency-mapping",
+        "p-visibility-first"
+      ],
+      "author": "ai"
+    },
+    {
+      "id": "wa-review-kindly",
+      "type": "concept",
+      "parent": "agreements",
+      "label": "We review quickly and kindly",
+      "summary": "An open pull request is a teammate waiting. Reviewing comes before starting new work.",
+      "why": "Review wait time is often the largest part of cycle time. Fast, focused reviews keep work flowing and keep authors from switching context.",
+      "practice": [
+        "As a reviewer, review within one working day of being asked.",
+        "Focus on correctness, test coverage and readability. Prefix style preferences with \"nit:\" so they don't block.",
+        "Approve when it is good enough to ship, not when it is exactly how you would have written it.",
+        "As an author, write a pull request description with context and how to test it.",
+        "Respond to comments within one working day.",
+        "If a discussion goes past two rounds of comments, move it to a quick call."
+      ],
+      "related": [
+        "flow-metrics",
+        "delivery-metrics",
+        "wa-small-prs"
+      ],
+      "author": "ai"
+    },
+    {
+      "id": "wa-small-prs",
+      "type": "concept",
+      "parent": "agreements",
+      "label": "One ticket, one small PR",
+      "summary": "Every subtask and bug gets its own pull request, linked to its ticket.",
+      "why": "For you: small pull requests get reviewed faster, cause fewer merge conflicts and are easy to roll back. For the team: tracking cycle time per pull request lets us forecast delivery of groomed work more accurately.",
+      "practice": [
+        "Put the subtask's ID in the pull request title so the tracker links the two.",
+        "Open each subtask's pull request against the feature branch, so the feature branch stays the integration point and each pull request stays small.",
+        "Keep each pull request to one change. If the description needs \"and also\", split it.",
+        "Working on a large change? Ask an AI coding assistant to split it into one pull request per subtask and draft the descriptions."
+      ],
+      "related": [
+        "flow-metrics",
+        "probabilistic-forecasting",
+        "ci-cd",
+        "wa-small-steps",
+        "wa-review-kindly"
+      ],
+      "author": "mine"
+    },
+    {
+      "id": "wa-small-steps",
+      "type": "concept",
+      "parent": "agreements",
+      "label": "We ship in small steps",
+      "summary": "Break every feature into small, independent, testable milestones before you start building.",
+      "why": "Risk shows up early, while it is still cheap to change course. Testing happens gradually instead of piling up at the end.",
+      "practice": [
+        "List the milestones in the ticket as subtasks before you start. Each one should be testable on its own, ideally.",
+        "Put the riskiest or least certain milestone first.",
+        "If a milestone looks like more than two or three days of work, split it again."
+      ],
+      "related": [
+        "scope-definition",
+        "discovery-readiness",
+        "flow-metrics",
+        "wa-small-prs"
+      ],
+      "author": "mine"
+    },
+    {
+      "id": "wa-statuses",
+      "type": "concept",
+      "parent": "agreements",
+      "label": "Statuses reflect reality",
+      "summary": "In an async team, the ticket status is how everyone knows where work actually stands.",
+      "why": "When statuses lag, every report, metric and forecast built on them is wrong, and people fall back to asking each other for updates.",
+      "practice": [
+        "Move a ticket the moment its state changes, not at the end of the day.",
+        "When the next status needs someone else, such as review or QA, ping them directly with the ticket link. Don't rely only on the tracker's notifications.",
+        "If a ticket is stuck, add a comment saying why and what it is waiting on."
+      ],
+      "related": [
+        "status-reporting",
+        "p-visibility-first",
+        "wa-definition-of-done"
+      ],
+      "author": "ai"
+    },
+    {
+      "id": "wa-test-before-handoff",
+      "type": "concept",
+      "parent": "agreements",
+      "label": "We test before we hand off",
+      "summary": "QA is our second line of defence, not our first. Hand over only work you are confident in.",
+      "why": "The goal is that QA finds nothing you could have found yourself. When a ticket does bounce back, treat it as a signal to improve how we test, not as a mark against anyone.",
+      "practice": [
+        "Before a ticket moves to QA, the change is covered by unit tests.",
+        "It is covered by integration tests where it touches other services or the database.",
+        "It is covered by end-to-end tests where it changes a user flow.",
+        "You have tested it manually yourself.",
+        "Leave a handover note on the ticket: what changed, how to test it, what you already tested, and any known limitations."
+      ],
+      "related": [
+        "shift-left-quality",
+        "release-management",
+        "wa-definition-of-done"
+      ],
+      "author": "mine"
     },
     {
       "id": "story-b2b-revenue",
@@ -1203,7 +1505,8 @@ window.TPM_DATA = {
         "escalation",
         "non-functional-requirements",
         "p-explicit-tradeoffs",
-        "p-promise-less"
+        "p-promise-less",
+        "capacity-allocation"
       ],
       "author": "ai"
     },
@@ -1268,6 +1571,8 @@ window.TPM_DATA = {
         "flow-metrics",
         "delivery-metrics",
         "estimation",
+        "wa-small-prs",
+        "wa-statuses",
         "status-reporting",
         "stakeholder-mapping",
         "operating-cadence",
@@ -1323,7 +1628,7 @@ window.TPM_DATA = {
       "id": "story-scaling-coordination",
       "type": "story",
       "label": "Coordinating delivery while R&D scaled",
-      "summary": "Being the program manager for a fast-growing R&D organization of many pods, building visibility, roadmaps, OKRs and leadership alignment without heavy ceremony.",
+      "summary": "Being the only program manager for an R&D organization that grew several times over, moving it from a gated process to shared principles, cross-functional pods and engineering health signals.",
       "prompts": [
         "What was broken when you arrived (async updates, tickets, sprint goals, roadmap)?",
         "What did you actually put in place, and what did you decide not to add?",
@@ -1331,14 +1636,25 @@ window.TPM_DATA = {
         "Name a launch or program it helped, with a before and after.",
         "What would you do differently?"
       ],
-      "experience": null,
+      "experience": "I joined a fast-growing company as the only program manager for an R&D organization of a few dozen people: a couple of product managers, a release manager, a few engineering managers, architects and engineers. Just before I arrived, they had put in place a process to make delivery more predictable. It was a stage-gate process: concept, discovery ending in an approved PRD, an approved engineering RFC before build, then release and hand-over to support. It gave clarity on what we were starting, but it was more waterfall than I would have liked, and teams often stalled waiting for product or engineering leads to finish their part.\n\nMy first task was getting that process adopted, and within about two months every team was working to the same cadence. What made it work was the engineering managers. I built a good working relationship with them and joined all the teams' scrum meetings, using them to push the process. Because the managers backed it, it was not just me asking; it was their own manager telling the team this was the right way to work.\n\nThe gated process held while the organization was small and I could personally follow each item from concept to release. As engineering grew by about half in a year, it became bloated and hard to follow. So I replaced the process with a short set of principles, agreed with the product and engineering managers. Teams could work however they liked as long as they followed them: set a quarterly roadmap of big rocks, prioritize them, take the top two and split them into milestones, define the first milestone and its dependencies, plan around those dependencies with other teams, and start building it while the next ones are defined. The managers were supportive because they felt the same pain; one manager's team had more than doubled. A one-page set of principles was something you could hand to any new joiner and revisit with the team every few weeks.\n\nWhen engineering doubled again in about half a year, we kept the principles but changed the structure: from component teams to about twenty cross-functional delivery pods, each with its own roadmap, product manager and engineering manager. When a pod hit a blocker, dependency or risk involving another pod, the principles asked it to raise it early in a shared forum with leadership and the other managers, where we agreed a plan.\n\nGoals followed the same shift. At first we could cascade company OKRs down to R&D and to each team. At scale that stopped working, so leadership set company OKRs, product named the big rocks meant to move them, and each big rock had an owner in product and one in engineering. The big rocks were left loose on purpose, so engineering could shape them, and the two owners decided together how to get the most value out of each one during roadmapping.\n\nI also set up engineering health signals, using an engineering metrics tool we bought and tailored to our needs: low work in progress, clear acceptance criteria, defined quality expectations, release notes, and a rule that every ticket has a corresponding pull request and every piece of engineering work is in a ticket. Those links let us see throughput and how long work took from a bug being raised to being merged, and eventually to reaching customers. That last step was long by design: the product was hard to configure, so each version rolled out in four or five waves ordered by customer severity, and we watched how it behaved in the wild before moving to the next wave. A full release took about a month. Release notes started with writing guidelines and ended up generated automatically by an AI model from the pull requests and tickets. I used the metrics as smoke signals to investigate with engineering managers, not as verdicts.\n\nTwo signals stood out. Pull requests were waiting far too long for review and merge: with a high volume of work and constant context switching, people lost track of them and nobody nudged. We added alerts, and the problem did not come back. The other was quality. Customers said the product was low quality, yet few bugs reached engineering. It turned out the product was hard to configure, and customers were reporting misconfigurations and misread data as bugs. Those tickets showed up as bugs in the customer-facing system but were dismissed before reaching engineering, so we never counted them. Having clear data on what engineering actually fixed and shipped helped straighten out that misunderstanding. Support and go-to-market teams then worked with customers on what counts as a bug and on the right way to use the product, and kept in regular touch with them about their experience.\n\nLooking back, I would introduce the principles much earlier. A clear set of principles is a core operating model for a team, whether R&D is twenty people or a hundred. Having them early means that as new people join, there are already others they can learn them from.",
       "related": [
         "influence",
         "cross-team-coordination",
         "operating-cadence",
         "okrs",
-        "exec-communication",
-        "p-visibility-first"
+        "dependency-mapping",
+        "flow-metrics",
+        "metric-definitions",
+        "ai-in-delivery",
+        "p-accountability",
+        "p-visibility-first",
+        "p-measure-systems",
+        "p-metric-semantics",
+        "p-separate-horizons",
+        "rolling-wave",
+        "team-structure",
+        "right-sized-process",
+        "p-principles-over-process"
       ],
       "author": "ai"
     },

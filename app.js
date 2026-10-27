@@ -53,7 +53,7 @@
   function matches(n) {
     var q = state.query.trim().toLowerCase();
     if (!q) return true;
-    var hay = [n.label, n.summary, n.why || "", (n.pitfalls || []).join(" ")].join(" ").toLowerCase();
+    var hay = [n.label, n.summary, n.why || "", (n.pitfalls || []).join(" "), (n.practice || []).join(" ")].join(" ").toLowerCase();
     return hay.indexOf(q) !== -1;
   }
 
@@ -295,6 +295,7 @@
 
     if (n.type === "concept") {
       if (n.why) section(p, "Why it matters", el("p", null, n.why));
+      if (n.practice) section(p, "In practice", listOf(n.practice));
       if (n.pitfalls) section(p, "Common pitfalls", listOf(n.pitfalls));
       if (n.reflect) section(p, "Connect it to my experience", listOf(n.reflect));
       var stories2 = nodes.filter(function (s) { return s.type === "story" && (s.related || []).indexOf(n.id) !== -1; });

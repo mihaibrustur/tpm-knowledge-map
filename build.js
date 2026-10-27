@@ -6,19 +6,20 @@
 //   tpm-knowledge/stories/<id>.md           a story
 //
 // Each file: optional front matter (related, author), "# Label", the summary paragraph,
-// then "## " sections. Concepts: Why it matters, Pitfalls, Reflect. Stories: Prompts, Experience.
+// then "## " sections. Concepts: Why it matters, In practice, Pitfalls, Reflect. Stories: Prompts, Experience.
 const fs = require("fs");
 const path = require("path");
 
 const root = path.join(__dirname, "tpm-knowledge");
 const sections = {
   "Why it matters": "why",
+  "In practice": "practice",
   "Pitfalls": "pitfalls",
   "Reflect": "reflect",
   "Prompts": "prompts",
   "Experience": "experience"
 };
-const lists = ["pitfalls", "reflect", "prompts"];
+const lists = ["practice", "pitfalls", "reflect", "prompts"];
 
 function parse(file) {
   const where = path.relative(__dirname, file);
