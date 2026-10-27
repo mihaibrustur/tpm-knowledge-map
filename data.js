@@ -1679,7 +1679,8 @@ window.TPM_DATA = {
         "rolling-wave",
         "team-structure",
         "right-sized-process",
-        "p-principles-over-process"
+        "p-principles-over-process",
+        "story-shift-left"
       ],
       "author": "ai"
     },
@@ -1687,19 +1688,24 @@ window.TPM_DATA = {
       "id": "story-shift-left",
       "type": "story",
       "label": "Bringing QA into discovery",
-      "summary": "Proposing weekly prioritization and refinement plus a discovery workshop so product, design, engineering and QA shape features together.",
+      "summary": "Removing a late-stage QA bottleneck by adding a QA manager to scoping, next to product and engineering, so bugs surfaced during build instead of before release.",
       "prompts": [
         "What problem prompted it (late QA, emergencies, slippage)?",
         "Which parts were actually adopted, and which stayed proposals?",
         "Who attended, and what decisions changed because of it?",
         "Any evidence: defects avoided, time saved, fewer surprises?"
       ],
-      "experience": null,
+      "experience": "At the company where I coordinated delivery while R&D scaled, we noticed that QA had become a bottleneck at the end of feature delivery. Features spent too long in QA, and many of the bugs and questions raised there should have been settled much earlier; it was the wrong moment to be asking them.\n\nWe looked at how scope was defined, in the product requirements documents on the product side and the RFCs on the engineering side, and saw that QA was not involved in either. We had assumed that QA following the documents asynchronously would be enough. It was not.\n\nSo we added a QA manager to milestone definition, next to the product manager and the engineering manager. Like the engineering manager, their role was to raise risks, ask questions and help refine the scope. Once the work started, they led the QA team in building the test cases and test documentation from the scope they had helped shape. This was not an extra cost to track: it became part of the QA manager's role. We had several QA managers, each the QA owner for particular pods or features, and they were accountable for being in discovery and knowing what to test and how before the build phase started, not during it or towards the end.\n\nAfterwards, more bugs were found during development and build rather than in regression and release preparation, and QA's time at the end of a release went into regression rather than catching up on feature testing. That made releases more predictable. Nobody pushed back; the reaction was closer to \"why weren't we doing this before?\" The lesson for me was that having people directly involved in shaping the work pays off far more than asking them to follow documents written by others.",
       "related": [
         "shift-left-quality",
         "discovery-readiness",
-        "intake-prioritization",
-        "p-quality-upstream"
+        "scope-definition",
+        "role-split",
+        "release-management",
+        "p-quality-upstream",
+        "p-visibility-first",
+        "story-scaling-coordination",
+        "p-accountability"
       ],
       "author": "ai"
     },
