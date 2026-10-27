@@ -3,12 +3,30 @@
 
   var DATA = window.TPM_DATA;
   var STORE_KEY = "tpm-map-revisited";
+  var READING_KEY = "tpm-map-reading";
 
   // ---------- state ----------
   var nodes = DATA.nodes.map(function (n) { return Object.assign({}, n); });
   var byId = new Map(nodes.map(function (n) { return [n.id, n]; }));
   var state = { expanded: new Set(), selected: null, query: "", showStories: true };
   var revisited = loadRevisited();
+  state.reading = loadReading();
+
+  function loadReading() {
+    try { return localStorage.getItem(READING_KEY) === "1"; } catch (e) { return false; }
+  }
+  function setReading(on) {
+    state.reading = on;
+    try { localStorage.setItem(READING_KEY, on ? "1" : "0"); } catch (e) { /* ignore */ }
+    applyReading();
+  }
+  // reading mode: the panel opens as a wide, centred view over the dimmed map
+  function applyReading() {
+    var open = !document.getElementById("panel").hidden;
+    document.querySelector(".layout").classList.toggle("reading", state.reading && open);
+    var b = document.getElementById("reading-toggle");
+    if (b) b.textContent = state.reading ? "Collapse" : "Expand";
+  }
 
   function loadRevisited() {
     try { return new Set(JSON.parse(localStorage.getItem(STORE_KEY) || "[]")); }
@@ -241,6 +259,7 @@
   function closePanel() {
     state.selected = null;
     document.getElementById("panel").hidden = true;
+    applyReading();
     styleNodes();
     try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* ignore */ }
   }
@@ -269,10 +288,17 @@
     p.hidden = false;
     p.textContent = "";
 
-    var close = el("button", "close", "Close");
+    var tools = el("div", "panel-tools");
+    var expand = el("button", null, state.reading ? "Collapse" : "Expand");
+    expand.type = "button";
+    expand.id = "reading-toggle";
+    expand.addEventListener("click", function () { setReading(!state.reading); });
+    tools.appendChild(expand);
+    var close = el("button", null, "Close");
     close.type = "button";
     close.addEventListener("click", closePanel);
-    p.appendChild(close);
+    tools.appendChild(close);
+    p.appendChild(tools);
 
     var head = el("div");
     head.appendChild(el("span", "badge " + n.type, n.type === "domain" ? "Competency" : n.type === "story" ? "Story" : "Concept"));
@@ -336,6 +362,7 @@
       p.appendChild(row);
     }
     p.scrollTop = 0;
+    applyReading();
   }
 
   // ---------- controls ----------
@@ -356,7 +383,14 @@
     }
     render();
   });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePanel(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (state.reading && !document.getElementById("panel").hidden) setReading(false); else closePanel();
+  });
+  // clicking the dimmed map behind the reading view returns to the side panel
+  document.querySelector(".layout").addEventListener("click", function (e) {
+    if (e.target === e.currentTarget && state.reading) setReading(false);
+  });
   window.addEventListener("hashchange", function () {
     var id = location.hash.slice(1);
     if (id && id !== state.selected && byId.has(id)) select(id);
