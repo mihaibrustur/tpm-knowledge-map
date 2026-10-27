@@ -1695,21 +1695,30 @@ window.TPM_DATA = {
     {
       "id": "story-sprint-release-scope",
       "type": "story",
-      "label": "Reconciling sprint scope with what ships",
-      "summary": "On a weekly sprint-and-release cadence, making the difference between frozen sprint scope, late additions and release-test defects visible.",
+      "label": "Protecting the sprint commitment",
+      "summary": "Finding out why sprints kept failing, closing a side channel into engineering, and planning support work through a capacity split instead.",
       "prompts": [
-        "What was the cadence, and where did scope and releases drift apart?",
-        "Why did sprint subtasks and release features not line up as units?",
-        "What did you measure, and what did you deliberately keep separate?",
-        "What did the data show, and did it change any decisions?"
+        "What principles do you run sprints on, and why?",
+        "When did a sprint commitment come under pressure, and what happened?",
+        "Where was unplanned work coming from, and how did you find out?",
+        "How did the teams that lost their shortcut react?",
+        "What changed afterwards, and what did not?"
       ],
-      "experience": null,
+      "experience": "At the company where I coordinated delivery while R&D scaled, I ran sprints on a few principles. The first I call fog of war, borrowed from strategy games: the further ahead you look, the less detail you see. In practice, we committed to the next sprint, planned the one after roughly, and kept only a high-level outline of the third. At each sprint review we updated the upcoming sprints, so the fog moved forward with us. Once set, the commitment was non-negotiable unless product decided otherwise: product had the say on priorities, and engineering raised risks and concerns along the way. Nothing went into a sprint without something coming out. Retrospectives were never skipped, because that is where we looked at how we did and decided what to change.\n\nRequests come from many sources, and pressure on a sprint is normal; you just need to stay on top of it. At one point, though, sprints were failing constantly, with committed scope not shipped on time. When we talked to the teams, they said they were working on items that were not in the sprint. Digging further, we found that support and customer experience teams were going to engineers directly, bypassing product, to get fixes and other work added. The work mattered, but outside the process it created chaos.\n\nWe split sprint capacity: 70% for roadmap work and 30% for keeping the lights on, which covered support and customer requests and bugs. That work had to be planned upfront with product, so we set up a regular session between product and those teams to prioritize their tickets, which also gave them more visibility.\n\nSupport and customer teams pushed back at first. Once they saw their tickets actually being solved and released, without having to mark everything urgent to get attention, they came to trust the process and the pushback softened. Sprints became more stable and the delivery metrics improved a lot, though sprints did not stop failing entirely.",
       "related": [
-        "scope-baselines",
-        "metric-definitions",
-        "release-management",
+        "rolling-wave",
+        "operating-cadence",
+        "committed-candidate",
         "change-control",
-        "mobile-releases"
+        "intake-prioritization",
+        "capacity-allocation",
+        "retrospectives",
+        "stakeholder-mapping",
+        "wa-own-the-sprint",
+        "p-explicit-tradeoffs",
+        "p-promise-less",
+        "p-separate-horizons",
+        "story-scaling-coordination"
       ],
       "author": "ai"
     }
