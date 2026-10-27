@@ -1404,26 +1404,6 @@ window.TPM_DATA = {
       "author": "mine"
     },
     {
-      "id": "story-b2b-revenue",
-      "type": "story",
-      "label": "A B2B feature that drove revenue",
-      "summary": "Taking a business-facing capability from discovery to launch, tied to a measurable recurring revenue outcome.",
-      "prompts": [
-        "What was the feature and who was it for?",
-        "How was the revenue measured, over what period, and how much of it is attributable to this work?",
-        "What was your role compared with product and engineering?",
-        "What did discovery or experiments change about the plan?"
-      ],
-      "experience": null,
-      "related": [
-        "scope-definition",
-        "okrs",
-        "decision-making",
-        "p-connect-value"
-      ],
-      "author": "ai"
-    },
-    {
       "id": "story-cross-team-dependency",
       "type": "story",
       "label": "A blocking cross-team dependency",
@@ -1472,9 +1452,11 @@ window.TPM_DATA = {
         "What made working for an external customer different from building internally?",
         "What risk surfaced that nobody had anticipated, and how did it compound with others?",
         "How did you handle the conversation about a missed date?",
-        "What would you do differently to catch unknowns like that earlier?"
+        "What would you do differently to catch unknowns like that earlier?",
+        "What revenue did the engagement bring, how was it measured, and how much of it is attributable to this work?",
+        "What was your role compared with product and engineering?"
       ],
-      "experience": "My team built and supported an internal product made of a long chain of work: hardware was built and shipped, field teams used it to collect data, engineering processed that data, machine learning teams turned it into features, and operations turned the result into live data customers could safely use. Every step had risks and dependencies on other teams, but internally we knew them, so we could anticipate them and plan around them.\n\nThen the company sold the capability to external customers, and my team was asked to build a bespoke solution for one of them while keeping the internal product going. Working with a third party in another country brought risks we were not used to.\n\nOne of them was shipping. We had to send battery-powered data-collection hardware to a country with very strict import rules. We packed and marked it as fragile freight with batteries and included the manufacturer's documentation, but local law required additional documents we did not have, and the customer did not know about them either. The shipment was held in a warehouse in the receiving country for three to four weeks while we sorted out the paperwork, and we came close to the warehouse's holding limit, after which it would have been sent back.\n\nThat delay compounded with another. Negotiations had already pushed the project start later than planned. On its own, a long regional public holiday fitted the plan; with a month of shipping delay, the work landed right in it. The date we had agreed could no longer be met.\n\nWe had a tough conversation with the customer and agreed a new date, three to four months after the original one. What made that conversation possible was that everything had been documented along the way: customer communications, scoping decisions, and the plans for shipping, data collection and engineering. Nothing in that record touched on import or export regulation; it was a process we did not know existed and learned about late. The customer accepted the facts, and we delivered on the new date.\n\nLooking back, I do not expect myself as a program manager to know every regulation in every country we work in, but it is my job to engage the people who do. I would look at compliance and regulation earlier, ask what risks could come from them, and plan what we need to do to mitigate them.",
+      "experience": "My team built and supported an internal product made of a long chain of work: hardware was built and shipped, field teams used it to collect data, engineering processed that data, machine learning teams turned it into features, and operations turned the result into live data customers could safely use. Every step had risks and dependencies on other teams, but internally we knew them, so we could anticipate them and plan around them.\n\nThen the company sold the capability to external customers, and my team was asked to build a bespoke solution for one of them while keeping the internal product going. Working with a third party in another country brought risks we were not used to.\n\nOne of them was shipping. We had to send battery-powered data-collection hardware to a country with very strict import rules. We packed and marked it as fragile freight with batteries and included the manufacturer's documentation, but local law required additional documents we did not have, and the customer did not know about them either. The shipment was held in a warehouse in the receiving country for three to four weeks while we sorted out the paperwork, and we came close to the warehouse's holding limit, after which it would have been sent back.\n\nThat delay compounded with another. Negotiations had already pushed the project start later than planned. On its own, a long regional public holiday fitted the plan; with a month of shipping delay, the work landed right in it. The date we had agreed could no longer be met.\n\nWe had a tough conversation with the customer and agreed a new date, three to four months after the original one. What made that conversation possible was that everything had been documented along the way: customer communications, scoping decisions, and the plans for shipping, data collection and engineering. Nothing in that record touched on import or export regulation; it was a process we did not know existed and learned about late. The customer accepted the facts, and we delivered on the new date. That mattered beyond the schedule: the contract's revenue was fixed and tied to successful delivery, so delivering is what won the contract and unlocked it.\n\nLooking back, I do not expect myself as a program manager to know every regulation in every country we work in, but it is my job to engage the people who do. I would look at compliance and regulation earlier, ask what risks could come from them, and plan what we need to do to mitigate them.",
       "related": [
         "dependency-mapping",
         "risk-register",
@@ -1484,7 +1466,8 @@ window.TPM_DATA = {
         "change-control",
         "stakeholder-mapping",
         "milestones-critical-path",
-        "p-explicit-tradeoffs"
+        "p-explicit-tradeoffs",
+        "p-connect-value"
       ],
       "author": "ai"
     },
