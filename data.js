@@ -1184,19 +1184,26 @@ window.TPM_DATA = {
     {
       "id": "story-incident",
       "type": "story",
-      "label": "A production incident",
-      "summary": "Your role during a production problem and what changed afterwards.",
+      "label": "Following through on a security incident",
+      "summary": "Coordinating the year-long remediation that followed a production security breach, alongside normal delivery work.",
       "prompts": [
         "What happened, at a high level, and what was the user impact?",
         "What was your role during the incident?",
         "What came out of the post-incident review?",
-        "Which follow-up actions actually got done?"
+        "Which follow-up actions actually got done?",
+        "What would you do differently?"
       ],
-      "experience": null,
+      "experience": "Shortly after I joined a large tech company as a senior TPM, I picked up part of the follow-up to a serious production incident from a couple of weeks earlier. Someone had found an open door into the production cloud account and used it to run unauthorized workloads that ran up costs. The immediate response, two to three days of nonstop work by teams across time zones, had already contained it. I was not part of that.\n\nBecause nobody could be sure how far the access went, the company decided to move systems gradually into a new cloud account, cutting off any access the attacker might still have. The immediate actions, including moving the mission-critical systems, were done within three to four weeks. The rest of the root cause analysis became a set of remediation milestones, handled by a group of TPMs across the company. Each milestone had a document explaining where it came from, what happens, what had to change so it would not happen again, and who was involved.\n\nMy part, about a fifth of my time next to my regular product work, was to get my milestones delivered. I engaged every party involved, reviewed the documents, broke them down into finer-grained work with timelines, and ran them in parallel with normal engineering work. The remaining items were mostly about detection: monitoring where traffic came from and alerting on anything suspicious, alerts on cloud costs, and alerts on access to personal data and sensitive API endpoints.\n\nThe hard part was competing with feature work for the same engineers. Capacity was split explicitly: about 80% to the business roadmap and 20% to the remediation roadmap. When the two clashed, the business item won, unless the remediation item was security-related or mission-critical. In those cases I could take the scenario to an escalation committee, and once it decided, the engineering team shipped the remediation item as well. We also engaged teams as early as possible and built in about four weeks of buffer per initiative, so remediation items could move later when a team was under pressure.\n\nRoughly 80 to 90% of the milestones landed on the agreed timelines; the rest slipped because urgent business work came up at the last minute. The whole remediation took a bit over a year.",
       "related": [
         "incident-management",
-        "retrospectives",
-        "exec-communication"
+        "cross-team-coordination",
+        "influence",
+        "milestones-critical-path",
+        "committed-candidate",
+        "escalation",
+        "non-functional-requirements",
+        "p-explicit-tradeoffs",
+        "p-promise-less"
       ],
       "author": "ai"
     },
