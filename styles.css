@@ -31,6 +31,11 @@ body {
   position: relative; z-index: 2;
 }
 .title { display: flex; align-items: baseline; gap: 14px; }
+.home-link {
+  font: 600 12px var(--hud-font); text-transform: uppercase; letter-spacing: .16em; color: var(--muted); text-decoration: none;
+}
+.home-link::before { content: "\2190  "; }
+.home-link:hover { color: var(--hud); }
 h1 {
   font: 600 18px/1 var(--hud-font); margin: 0; text-transform: uppercase; letter-spacing: .22em;
   color: var(--hud); text-shadow: 0 0 8px rgba(95, 211, 230, .5);

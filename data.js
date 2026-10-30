@@ -311,7 +311,8 @@ window.TPM_DATA = {
       "related": [
         "ci-cd",
         "incident-management",
-        "mitigation-contingency"
+        "mitigation-contingency",
+        "staged-rollouts"
       ],
       "author": "ai"
     },
@@ -335,6 +336,31 @@ window.TPM_DATA = {
         "discovery-readiness",
         "release-management",
         "p-quality-upstream"
+      ],
+      "author": "ai"
+    },
+    {
+      "id": "staged-rollouts",
+      "type": "concept",
+      "parent": "execution",
+      "label": "Staged rollouts",
+      "summary": "Releasing a new version to customers in waves rather than all at once, watching how it behaves before moving to the next wave.",
+      "why": "When a bad release is costly, or cannot be rolled back instantly because customers install or configure it themselves, waves limit the damage to a small group and turn the first wave into an early warning. The trade-off is a longer time to reach every customer, which can be a deliberate choice rather than slowness.",
+      "pitfalls": [
+        "Treating \"released\" as \"in every customer's hands\" when most are still on an older version.",
+        "Skipping the staged approach for a risky change because the schedule is tight.",
+        "Moving to the next wave on a timer instead of on evidence from the current one.",
+        "Measuring lead time without saying that part of it is the rollout, by design."
+      ],
+      "reflect": [
+        "How did you decide the size and order of rollout waves?",
+        "What signal would make you stop a rollout between waves?"
+      ],
+      "related": [
+        "release-management",
+        "mitigation-contingency",
+        "delivery-metrics",
+        "incident-management"
       ],
       "author": "ai"
     },
@@ -642,27 +668,6 @@ window.TPM_DATA = {
         "retrospectives",
         "capacity-allocation",
         "escalation"
-      ],
-      "author": "ai"
-    },
-    {
-      "id": "mobile-releases",
-      "type": "concept",
-      "parent": "technical",
-      "label": "Mobile release management",
-      "summary": "Shipping through app stores: branch cuts, store review, staged rollouts and users who update at their own pace.",
-      "why": "Unlike a web service, a mobile release cannot be rolled back instantly, and old versions stay in use. That changes how you think about cadence, risk and what \"deployed\" means.",
-      "pitfalls": [
-        "Equating \"submitted to the store\" with \"in users' hands\".",
-        "Skipping staged rollout for a risky change.",
-        "Applying web-style deployment metrics without adapting them."
-      ],
-      "reflect": [
-        "What are mobile-specific release challenges compared with web services?"
-      ],
-      "related": [
-        "release-management",
-        "delivery-metrics"
       ],
       "author": "ai"
     },
@@ -1330,7 +1335,7 @@ window.TPM_DATA = {
       "why": "For you: small pull requests get reviewed faster, cause fewer merge conflicts and are easy to roll back. For the team: tracking cycle time per pull request lets us forecast delivery of groomed work more accurately.",
       "practice": [
         "Put the subtask's ID in the pull request title so the tracker links the two.",
-        "Open each subtask's pull request against the feature branch, so the feature branch stays the integration point and each pull request stays small.",
+        "Point each subtask's change at a shared integration branch for the feature, so that branch stays the integration point and each change stays small.",
         "Keep each pull request to one change. If the description needs \"and also\", split it.",
         "Working on a large change? Ask an AI coding assistant to split it into one pull request per subtask and draft the descriptions."
       ],
@@ -1663,7 +1668,8 @@ window.TPM_DATA = {
         "team-structure",
         "right-sized-process",
         "p-principles-over-process",
-        "story-shift-left"
+        "story-shift-left",
+        "staged-rollouts"
       ],
       "author": "ai"
     },

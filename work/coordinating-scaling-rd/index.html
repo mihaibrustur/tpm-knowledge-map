@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coordinating execution across a scaling R&amp;D organization · Mihai Brustur</title>
+  <meta name="description" content="How I kept delivery predictable as an R&amp;D organization grew to about a hundred engineers, from adopting a gated process to replacing it with shared principles, cross-functional pods and engineering health signals.">
+  <link rel="canonical" href="https://mihaibrustur.github.io/tpm-knowledge-map/work/coordinating-scaling-rd/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Behind the Delivery">
+  <meta property="og:title" content="Coordinating execution across a scaling R&amp;D organization · Mihai Brustur">
+  <meta property="og:description" content="How I kept delivery predictable as an R&amp;D organization grew to about a hundred engineers, from adopting a gated process to replacing it with shared principles, cross-functional pods and engineering health signals.">
+  <meta property="og:url" content="https://mihaibrustur.github.io/tpm-knowledge-map/work/coordinating-scaling-rd/">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="../../">Behind the Delivery</a>
+    <nav aria-label="Main"><a href="../../work/" aria-current="page">My work</a><a href="../../map/">Knowledge map</a></nav>
+  </header>
+  <main id="main">
+
+    <article class="case-study">
+      <p class="label"><a href="../../work/">My work</a> · A cybersecurity scale-up · Program manager</p>
+      <h1>Coordinating execution across a scaling R&amp;D organization</h1>
+      <p class="lede">How I kept delivery predictable as an R&amp;D organization grew to about a hundred engineers, from adopting a gated process to replacing it with shared principles, cross-functional pods and engineering health signals.</p>
+    <section>
+      <h2>The situation</h2>
+      <p>I joined a fast-growing cybersecurity company as the only program manager for its R&amp;D organization. At the start it was a few dozen people: a couple of product managers, a release manager, a few engineering managers, architects and engineers. Over the next year and a half, engineering grew to about a hundred people.</p>
+<p>Just before I arrived, the team had put in place a stage-gate process to make delivery more predictable: concept, then discovery ending in an approved product requirements document, then an approved engineering RFC before build, then release and hand-over to support.</p>
+    </section>
+    <section>
+      <h2>The challenge</h2>
+      <p>The process gave clarity on what we were starting, though it was more waterfall than I would have liked, and teams often stalled waiting for product or engineering leads to finish their part. It held while the organization was small enough for me to follow each item from concept to release. As engineering grew by half in a year, and then doubled again in about six months, it became bloated and hard to follow.</p>
+<p>I had no authority over any of the teams. Every change had to be taken up by product and engineering managers who had their own priorities and their own growing teams.</p>
+<p>Growth also exposed problems the process did not show. Sprints kept failing because work was reaching engineers through side channels, and QA had become a bottleneck at the end of feature delivery.</p>
+    </section>
+    <section>
+      <h2>My role</h2>
+      <p>I was the only program manager for R&amp;D. I was responsible for getting the delivery process adopted, then for the planning principles that replaced it, the sprint practices, and the engineering health signals. I coordinated work across teams with the product and engineering managers, and reported to the SVP of Engineering and the Director of Release Management. Product owned priorities; engineering managers owned their teams and raised risks and concerns along the way. The move to cross-functional pods was leadership's proposal; I helped shape it, then rolled it out and implemented it.</p>
+    </section>
+    <section>
+      <h2>The decisions</h2>
+      <h3>Win the managers first</h3>
+<p>Rather than pushing an inherited process onto the teams directly, I built working relationships with the engineering managers and joined every team's scrum meetings. Because the managers backed it, the process was not just me asking; it was their own manager telling the team this was the right way to work.</p>
+<h3>Replace the process with principles</h3>
+<p>When the gated process stopped scaling, I replaced it with a one-page set of principles, agreed with the product and engineering managers. Teams could work however they liked as long as they followed them: a quarterly roadmap of big rocks, the top two split into milestones, the first milestone defined with its dependencies, and building started while the next ones are shaped. I call the planning part fog of war: commit to the next sprint, plan the one after roughly, and keep only an outline of the third.</p>
+<h3>Tie milestones to company goals without cascading</h3>
+<p>Cascading company OKRs down to every team stopped working at scale. Leadership set company OKRs, product named the big rocks meant to move them, and each big rock had an owner in product and one in engineering. The big rocks were left loose on purpose, so engineering could shape them.</p>
+<h3>Change the structure, keep the principles</h3>
+<p>As engineering doubled again, leadership proposed moving from component teams to cross-functional pods. I helped shape the change, then rolled it out: about twenty pods, each with its own roadmap, product manager and engineering manager. When a pod hit a blocker, dependency or risk involving another pod, the principles asked it to raise it early in a shared forum with leadership and the other managers, where we agreed a plan.</p>
+<h3>Protect the sprint with an explicit capacity split</h3>
+<p>Sprints were failing because support and customer teams were going to engineers directly, bypassing product. We split sprint capacity into 70% roadmap work and 30% for keeping the lights on, planned that work upfront with product, and set up a regular prioritization session with those teams.</p>
+<h3>Bring QA into discovery</h3>
+<p>QA was not involved when scope was defined. We added a QA manager to milestone definition, next to the product and engineering managers, and made it part of the QA manager's role to know what to test, and how, before build started.</p>
+<h3>Use metrics as smoke signals</h3>
+<p>Using an engineering metrics tool we bought and tailored, we tracked work in progress, review and merge time, and the path from a bug being raised to reaching customers, with every ticket linked to a pull request. I used the numbers to decide where to look with the engineering managers, not as verdicts.</p>
+    </section>
+    <section>
+      <h2>The outcome</h2>
+      <ul><li>Every team was working to the same cadence within about two months of my joining.</li><li>Sprints became more stable and the delivery metrics improved a lot, though sprints did not stop failing entirely.</li><li>Support and customer teams pushed back at first, then came to trust the process once their tickets shipped without being marked urgent.</li><li>More bugs were found during build rather than in release preparation, which made releases more predictable.</li><li>Pull requests had been waiting too long for review and merge; alerts fixed it and the problem did not come back.</li><li>The data showed that customers were reporting misconfigurations as bugs that never reached engineering. Support and go-to-market teams then worked with customers on what counts as a bug and how to use the product.</li></ul>
+    </section>
+    <section>
+      <h2>What I learned</h2>
+      <p>I would introduce the principles much earlier. A clear set of principles is a core operating model for a team, whether R&amp;D is twenty people or a hundred, and having them early means new joiners learn them from the people already there.</p>
+<p>Having people directly involved in shaping the work pays off far more than asking them to follow documents written by others.</p>
+<p>Metrics tell you where to look. The conversation with the team tells you what is actually happening.</p>
+    </section>
+    <section class="related">
+      <h2>Related concepts</h2>
+      <p>Open any of these in the knowledge map to see how it connects to the rest of my work.</p>
+      <ul class="chips"><li><a href="../../map/#rolling-wave">Rolling-wave planning</a></li><li><a href="../../map/#right-sized-process">Right-sized process</a></li><li><a href="../../map/#team-structure">Team structure for delivery</a></li><li><a href="../../map/#influence">Influence without authority</a></li><li><a href="../../map/#okrs">OKRs and goals</a></li><li><a href="../../map/#capacity-allocation">Capacity allocation across roadmaps</a></li><li><a href="../../map/#shift-left-quality">Shift-left quality</a></li><li><a href="../../map/#flow-metrics">Flow metrics</a></li><li><a href="../../map/#metric-definitions">Metric definitions</a></li><li><a href="../../map/#p-principles-over-process">Principles scale better than process</a></li></ul>
+    </section>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <span>Mihai Brustur</span>
+    <a href="https://www.linkedin.com/in/mihai-brustur/" rel="me">LinkedIn</a>
+    <a href="mailto:mihai.brustur@gmail.com">mihai.brustur@gmail.com</a>
+  </footer>
+</body>
+</html>

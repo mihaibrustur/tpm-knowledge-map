@@ -3,41 +3,76 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TPM Knowledge Map</title>
-  <meta name="description" content="An interactive map of technical program management concepts and experience.">
+  <title>Mihai Brustur · Behind the Delivery</title>
+  <meta name="description" content="Technical program leader. Real problems, difficult decisions and lessons from leading engineering programs, connected to an interactive map of TPM knowledge.">
+  <link rel="canonical" href="https://mihaibrustur.github.io/tpm-knowledge-map/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Behind the Delivery">
+  <meta property="og:title" content="Mihai Brustur · Behind the Delivery">
+  <meta property="og:description" content="Technical program leader. Real problems, difficult decisions and lessons from leading engineering programs, connected to an interactive map of TPM knowledge.">
+  <meta property="og:url" content="https://mihaibrustur.github.io/tpm-knowledge-map/">
+  <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./site.css">
 </head>
 <body>
-  <header class="bar">
-    <div class="title">
-      <h1>TPM Knowledge Map</h1>
-    </div>
-    <div class="controls">
-      <input id="search" type="search" placeholder="Search concepts…" aria-label="Search concepts">
-      <label class="toggle"><input id="stories" type="checkbox" checked> Stories</label>
-      <button id="expand" type="button">Expand all</button>
-      <button id="collapse" type="button">Collapse all</button>
-    </div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="./">Behind the Delivery</a>
+    <nav aria-label="Main"><a href="./work/">My work</a><a href="./map/">Knowledge map</a></nav>
   </header>
+  <main id="main">
 
-  <main class="layout">
-    <div class="stage">
-      <svg id="graph" role="img" aria-label="Graph of TPM competencies, concepts and stories"></svg>
-      <div class="legend">
-        <span><i class="dot domain"></i>Competency</span>
-        <span><i class="dot concept"></i>Concept</span>
-        <span><i class="dot story"></i>Story</span>
-        <span class="hint">Click a competency to open it. Drag to move, scroll to zoom.</span>
+    <section class="hero">
+      <p class="label">Mihai Brustur · Technical program leader</p>
+      <h1>Making complex engineering work easier to execute.</h1>
+      <p class="lede">I'm a technical program leader with a software engineering background and experience across cybersecurity, large-scale platforms, and fintech.</p>
+      <p class="lede">I work on the challenges that emerge as engineering organizations grow: competing priorities, complex dependencies, fragmented information, and difficult decisions.</p>
+      <p class="ctas"><a class="btn primary" href="work/">Explore my work</a><a class="btn" href="map/">Explore the knowledge map</a></p>
+    </section>
+
+    <section aria-labelledby="h-highlights">
+      <h2 id="h-highlights" class="label">Experience highlights</h2>
+      <ul class="highlights">
+        <li><span class="num">~100 engineers</span><span>The R&amp;D organization I supported as its only program manager, at a cybersecurity scale-up.</span></li>
+        <li><span class="num">$1M+ a year</span><span>Cost savings from a mapping and location-services rollout I worked on with engineering and product teams at a large tech platform.</span></li>
+        <li><span class="num">~3 months</span><span>To compliance sign-off for a card-payment platform built by four teams at a software consultancy, where I was scrum master for two of them.</span></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="h-work">
+      <h2 id="h-work" class="label">Case studies</h2>
+      <div class="cards">
+    <article class="card">
+      <p class="label">A cybersecurity scale-up · Program manager</p>
+      <h3><a href="./work/coordinating-scaling-rd/">Coordinating execution across a scaling R&amp;D organization</a></h3>
+      <p><span class="k">Challenge</span> Keeping delivery predictable while engineering grew to about a hundred people, as the only program manager and with no authority over the teams.</p>
+      <p><span class="k">Outcome</span> Every team on one cadence within about two months, then a move from a gated process to shared principles, cross-functional pods and engineering health signals as the organization grew.</p>
+    </article>
       </div>
-    </div>
-    <aside id="panel" class="panel" aria-live="polite" hidden></aside>
-  </main>
+      <p><a class="more" href="work/">All case studies</a></p>
+    </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+    <section class="map-teaser" aria-labelledby="h-map">
+      <div>
+        <h2 id="h-map" class="label">The knowledge map</h2>
+        <p>Every competency, concept and principle I work with, connected to the real stories behind them. Start from a concept and find where it was put to the test.</p>
+        <p><a class="btn" href="map/">Explore the knowledge map</a></p>
+      </div>
+      <a href="map/" tabindex="-1" aria-hidden="true"><svg class="map-preview" viewBox="-200 -200 400 400" role="img" aria-label="Preview of the knowledge map: 9 competencies, their concepts, and 7 stories"><line class="l" x1="0.0" y1="-120.0" x2="-79.8" y2="-147.8"/><circle class="c" cx="-79.8" cy="-147.8" r="2.6"/><line class="l" x1="0.0" y1="-120.0" x2="-63.1" y2="-155.7"/><circle class="c" cx="-63.1" cy="-155.7" r="2.6"/><line class="l" x1="0.0" y1="-120.0" x2="-45.6" y2="-161.7"/><circle class="c" cx="-45.6" cy="-161.7" r="2.6"/><line class="l" x1="0.0" y1="-120.0" x2="-27.6" y2="-165.7"/><circle class="c" cx="-27.6" cy="-165.7" r="2.6"/><line class="l" x1="0.0" y1="-120.0" x2="-9.2" y2="-167.7"/><circle class="c" cx="-9.2" cy="-167.7" r="2.6"/><line class="l" x1="0.0" y1="-120.0" x2="9.2" y2="-167.7"/><circle class="c" cx="9.2" cy="-167.7" r="2.6"/><line class="l" x1="0.0" y1="-120.0" x2="27.6" y2="-165.7"/><circle class="c" cx="27.6" cy="-165.7" r="2.6"/><line class="l" x1="0.0" y1="-120.0" x2="45.6" y2="-161.7"/><circle class="c" cx="45.6" cy="-161.7" r="2.6"/><line class="l" x1="0.0" y1="-120.0" x2="63.1" y2="-155.7"/><circle class="c" cx="63.1" cy="-155.7" r="2.6"/><line class="l" x1="0.0" y1="-120.0" x2="79.8" y2="-147.8"/><circle class="c" cx="79.8" cy="-147.8" r="2.6"/><line class="l" x1="77.1" y1="-91.9" x2="69.0" y2="-153.2"/><circle class="c" cx="69.0" cy="-153.2" r="2.6"/><line class="l" x1="77.1" y1="-91.9" x2="85.4" y2="-144.7"/><circle class="c" cx="85.4" cy="-144.7" r="2.6"/><line class="l" x1="77.1" y1="-91.9" x2="100.8" y2="-134.4"/><circle class="c" cx="100.8" cy="-134.4" r="2.6"/><line class="l" x1="77.1" y1="-91.9" x2="114.9" y2="-122.6"/><circle class="c" cx="114.9" cy="-122.6" r="2.6"/><line class="l" x1="77.1" y1="-91.9" x2="127.7" y2="-109.2"/><circle class="c" cx="127.7" cy="-109.2" r="2.6"/><line class="l" x1="77.1" y1="-91.9" x2="138.9" y2="-94.5"/><circle class="c" cx="138.9" cy="-94.5" r="2.6"/><line class="l" x1="118.2" y1="-20.8" x2="158.4" y2="-56.0"/><circle class="c" cx="158.4" cy="-56.0" r="2.6"/><line class="l" x1="118.2" y1="-20.8" x2="163.6" y2="-38.2"/><circle class="c" cx="163.6" cy="-38.2" r="2.6"/><line class="l" x1="118.2" y1="-20.8" x2="166.8" y2="-20.0"/><circle class="c" cx="166.8" cy="-20.0" r="2.6"/><line class="l" x1="118.2" y1="-20.8" x2="168.0" y2="-1.6"/><circle class="c" cx="168.0" cy="-1.6" r="2.6"/><line class="l" x1="103.9" y1="60.0" x2="157.3" y2="59.0"/><circle class="c" cx="157.3" cy="59.0" r="2.6"/><line class="l" x1="103.9" y1="60.0" x2="149.9" y2="75.9"/><circle class="c" cx="149.9" cy="75.9" r="2.6"/><line class="l" x1="103.9" y1="60.0" x2="140.7" y2="91.9"/><circle class="c" cx="140.7" cy="91.9" r="2.6"/><line class="l" x1="103.9" y1="60.0" x2="129.7" y2="106.8"/><circle class="c" cx="129.7" cy="106.8" r="2.6"/><line class="l" x1="41.0" y1="112.8" x2="105.5" y2="130.7"/><circle class="c" cx="105.5" cy="130.7" r="2.6"/><line class="l" x1="41.0" y1="112.8" x2="90.5" y2="141.5"/><circle class="c" cx="90.5" cy="141.5" r="2.6"/><line class="l" x1="41.0" y1="112.8" x2="74.4" y2="150.6"/><circle class="c" cx="74.4" cy="150.6" r="2.6"/><line class="l" x1="41.0" y1="112.8" x2="57.5" y2="157.9"/><circle class="c" cx="57.5" cy="157.9" r="2.6"/><line class="l" x1="41.0" y1="112.8" x2="39.8" y2="163.2"/><circle class="c" cx="39.8" cy="163.2" r="2.6"/><line class="l" x1="41.0" y1="112.8" x2="21.6" y2="166.6"/><circle class="c" cx="21.6" cy="166.6" r="2.6"/><line class="l" x1="41.0" y1="112.8" x2="3.2" y2="168.0"/><circle class="c" cx="3.2" cy="168.0" r="2.6"/><line class="l" x1="-41.0" y1="112.8" x2="-12.4" y2="167.5"/><circle class="c" cx="-12.4" cy="167.5" r="2.6"/><line class="l" x1="-41.0" y1="112.8" x2="-30.7" y2="165.2"/><circle class="c" cx="-30.7" cy="165.2" r="2.6"/><line class="l" x1="-41.0" y1="112.8" x2="-48.7" y2="160.8"/><circle class="c" cx="-48.7" cy="160.8" r="2.6"/><line class="l" x1="-41.0" y1="112.8" x2="-66.1" y2="154.5"/><circle class="c" cx="-66.1" cy="154.5" r="2.6"/><line class="l" x1="-41.0" y1="112.8" x2="-82.6" y2="146.3"/><circle class="c" cx="-82.6" cy="146.3" r="2.6"/><line class="l" x1="-41.0" y1="112.8" x2="-98.2" y2="136.3"/><circle class="c" cx="-98.2" cy="136.3" r="2.6"/><line class="l" x1="-103.9" y1="60.0" x2="-110.4" y2="126.6"/><circle class="c" cx="-110.4" cy="126.6" r="2.6"/><line class="l" x1="-103.9" y1="60.0" x2="-123.7" y2="113.7"/><circle class="c" cx="-123.7" cy="113.7" r="2.6"/><line class="l" x1="-103.9" y1="60.0" x2="-135.4" y2="99.5"/><circle class="c" cx="-135.4" cy="99.5" r="2.6"/><line class="l" x1="-103.9" y1="60.0" x2="-145.5" y2="84.0"/><circle class="c" cx="-145.5" cy="84.0" r="2.6"/><line class="l" x1="-103.9" y1="60.0" x2="-153.8" y2="67.5"/><circle class="c" cx="-153.8" cy="67.5" r="2.6"/><line class="l" x1="-103.9" y1="60.0" x2="-160.3" y2="50.2"/><circle class="c" cx="-160.3" cy="50.2" r="2.6"/><line class="l" x1="-103.9" y1="60.0" x2="-164.9" y2="32.3"/><circle class="c" cx="-164.9" cy="32.3" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-156.3" y2="61.6"/><circle class="c" cx="-156.3" cy="61.6" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-162.1" y2="44.1"/><circle class="c" cx="-162.1" cy="44.1" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-166.0" y2="26.0"/><circle class="c" cx="-166.0" cy="26.0" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-167.8" y2="7.6"/><circle class="c" cx="-167.8" cy="7.6" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-167.7" y2="-10.8"/><circle class="c" cx="-167.7" cy="-10.8" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-165.4" y2="-29.2"/><circle class="c" cx="-165.4" cy="-29.2" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-161.2" y2="-47.2"/><circle class="c" cx="-161.2" cy="-47.2" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-155.1" y2="-64.6"/><circle class="c" cx="-155.1" cy="-64.6" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-147.1" y2="-81.2"/><circle class="c" cx="-147.1" cy="-81.2" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-137.3" y2="-96.9"/><circle class="c" cx="-137.3" cy="-96.9" r="2.6"/><line class="l" x1="-118.2" y1="-20.8" x2="-125.8" y2="-111.3"/><circle class="c" cx="-125.8" cy="-111.3" r="2.6"/><line class="l" x1="-77.1" y1="-91.9" x2="-148.4" y2="-78.7"/><circle class="c" cx="-148.4" cy="-78.7" r="2.6"/><line class="l" x1="-77.1" y1="-91.9" x2="-138.9" y2="-94.5"/><circle class="c" cx="-138.9" cy="-94.5" r="2.6"/><line class="l" x1="-77.1" y1="-91.9" x2="-127.7" y2="-109.2"/><circle class="c" cx="-127.7" cy="-109.2" r="2.6"/><line class="l" x1="-77.1" y1="-91.9" x2="-114.9" y2="-122.6"/><circle class="c" cx="-114.9" cy="-122.6" r="2.6"/><line class="l" x1="-77.1" y1="-91.9" x2="-100.8" y2="-134.4"/><circle class="c" cx="-100.8" cy="-134.4" r="2.6"/><line class="l" x1="-77.1" y1="-91.9" x2="-85.4" y2="-144.7"/><circle class="c" cx="-85.4" cy="-144.7" r="2.6"/><line class="l" x1="-77.1" y1="-91.9" x2="-69.0" y2="-153.2"/><circle class="c" cx="-69.0" cy="-153.2" r="2.6"/><line class="l" x1="-77.1" y1="-91.9" x2="-51.8" y2="-159.8"/><circle class="c" cx="-51.8" cy="-159.8" r="2.6"/><line class="r" x1="46.0" y1="0.0" x2="0.0" y2="-120.0"/><line class="r" x1="46.0" y1="0.0" x2="118.2" y2="-20.8"/><line class="r" x1="46.0" y1="0.0" x2="41.0" y2="112.8"/><line class="r" x1="46.0" y1="0.0" x2="103.9" y2="60.0"/><line class="r" x1="46.0" y1="0.0" x2="77.1" y2="-91.9"/><line class="r" x1="46.0" y1="0.0" x2="-118.2" y2="-20.8"/><rect class="s" x="42.0" y="-4.0" width="8" height="8" transform="rotate(45 46.0 0.0)"/><line class="r" x1="28.7" y1="36.0" x2="41.0" y2="112.8"/><line class="r" x1="28.7" y1="36.0" x2="-103.9" y2="60.0"/><line class="r" x1="28.7" y1="36.0" x2="0.0" y2="-120.0"/><line class="r" x1="28.7" y1="36.0" x2="118.2" y2="-20.8"/><line class="r" x1="28.7" y1="36.0" x2="-118.2" y2="-20.8"/><rect class="s" x="24.7" y="32.0" width="8" height="8" transform="rotate(45 28.7 36.0)"/><line class="r" x1="-10.2" y1="44.8" x2="41.0" y2="112.8"/><line class="r" x1="-10.2" y1="44.8" x2="0.0" y2="-120.0"/><line class="r" x1="-10.2" y1="44.8" x2="-103.9" y2="60.0"/><line class="r" x1="-10.2" y1="44.8" x2="77.1" y2="-91.9"/><rect class="s" x="-14.2" y="40.8" width="8" height="8" transform="rotate(45 -10.2 44.8)"/><line class="r" x1="-41.4" y1="20.0" x2="-41.0" y2="112.8"/><line class="r" x1="-41.4" y1="20.0" x2="0.0" y2="-120.0"/><line class="r" x1="-41.4" y1="20.0" x2="-77.1" y2="-91.9"/><line class="r" x1="-41.4" y1="20.0" x2="77.1" y2="-91.9"/><line class="r" x1="-41.4" y1="20.0" x2="103.9" y2="60.0"/><line class="r" x1="-41.4" y1="20.0" x2="41.0" y2="112.8"/><line class="r" x1="-41.4" y1="20.0" x2="-118.2" y2="-20.8"/><rect class="s" x="-45.4" y="16.0" width="8" height="8" transform="rotate(45 -41.4 20.0)"/><line class="r" x1="-41.4" y1="-20.0" x2="-103.9" y2="60.0"/><line class="r" x1="-41.4" y1="-20.0" x2="77.1" y2="-91.9"/><line class="r" x1="-41.4" y1="-20.0" x2="-41.0" y2="112.8"/><line class="r" x1="-41.4" y1="-20.0" x2="0.0" y2="-120.0"/><line class="r" x1="-41.4" y1="-20.0" x2="41.0" y2="112.8"/><line class="r" x1="-41.4" y1="-20.0" x2="-118.2" y2="-20.8"/><rect class="s" x="-45.4" y="-24.0" width="8" height="8" transform="rotate(45 -41.4 -20.0)"/><line class="r" x1="-10.2" y1="-44.8" x2="77.1" y2="-91.9"/><line class="r" x1="-10.2" y1="-44.8" x2="0.0" y2="-120.0"/><line class="r" x1="-10.2" y1="-44.8" x2="-103.9" y2="60.0"/><line class="r" x1="-10.2" y1="-44.8" x2="-118.2" y2="-20.8"/><rect class="s" x="-14.2" y="-48.8" width="8" height="8" transform="rotate(45 -10.2 -44.8)"/><line class="r" x1="28.7" y1="-36.0" x2="0.0" y2="-120.0"/><line class="r" x1="28.7" y1="-36.0" x2="77.1" y2="-91.9"/><line class="r" x1="28.7" y1="-36.0" x2="-103.9" y2="60.0"/><line class="r" x1="28.7" y1="-36.0" x2="103.9" y2="60.0"/><line class="r" x1="28.7" y1="-36.0" x2="-77.1" y2="-91.9"/><line class="r" x1="28.7" y1="-36.0" x2="-118.2" y2="-20.8"/><rect class="s" x="24.7" y="-40.0" width="8" height="8" transform="rotate(45 28.7 -36.0)"/><circle class="d" cx="0.0" cy="-120.0" r="9"/><circle class="d" cx="77.1" cy="-91.9" r="9"/><circle class="d" cx="118.2" cy="-20.8" r="9"/><circle class="d" cx="103.9" cy="60.0" r="9"/><circle class="d" cx="41.0" cy="112.8" r="9"/><circle class="d" cx="-41.0" cy="112.8" r="9"/><circle class="d" cx="-103.9" cy="60.0" r="9"/><circle class="d" cx="-118.2" cy="-20.8" r="9"/><circle class="d" cx="-77.1" cy="-91.9" r="9"/></svg></a>
+    </section>
+
+    <script>
+      // old links pointed map nodes at the site root, e.g. /#risk-register; send them to the map
+      if (location.hash.length > 1 && !document.getElementById(decodeURIComponent(location.hash.slice(1)))) location.replace("map/" + location.hash);
+    </script>
+  </main>
+  <footer class="site-footer">
+    <span>Mihai Brustur</span>
+    <a href="https://www.linkedin.com/in/mihai-brustur/" rel="me">LinkedIn</a>
+    <a href="mailto:mihai.brustur@gmail.com">mihai.brustur@gmail.com</a>
+  </footer>
 </body>
 </html>

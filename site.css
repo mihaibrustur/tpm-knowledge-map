@@ -1,0 +1,135 @@
+/* Portfolio pages: the map's palette at a calmer intensity. Typography first, no animation. */
+:root {
+  --bg: #04070d;
+  --surface: #0a121c;
+  --text: #dbe7ec;
+  --muted: #8fa6ae;
+  --rule: rgba(95, 211, 230, .16);
+  --accent: #5fd3e6;
+  --concept: #6cf0a0;
+  --story: #f2b441;
+  --hud-font: "Rajdhani", "Segoe UI", system-ui, sans-serif;
+  --body-font: "Exo 2", system-ui, -apple-system, sans-serif;
+  --measure: 680px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 18px/1.7 var(--body-font);
+}
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: #9fe8f3; }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 10px; z-index: 10; }
+.skip:focus { left: 16px; }
+
+/* small uppercase labels: the quiet echo of the map's HUD */
+.label, .site-header nav a, .brand, .btn, .k, .chips a, .more {
+  font-family: var(--hud-font); text-transform: uppercase; letter-spacing: .14em;
+}
+.label { font-size: 13px; font-weight: 600; color: var(--muted); margin: 0 0 12px; }
+.label a { color: var(--muted); }
+
+/* ---------- header and footer ---------- */
+.site-header, .site-footer, main { max-width: 1040px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header {
+  display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between;
+  padding-top: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--rule);
+}
+.brand { font-size: 15px; font-weight: 700; color: var(--text); text-decoration: none; }
+.site-header nav { display: flex; gap: 20px; }
+.site-header nav a { font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none; }
+.site-header nav a:hover, .site-header nav a[aria-current] { color: var(--accent); }
+.site-footer {
+  display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 96px;
+  padding-top: 24px; padding-bottom: 40px; border-top: 1px solid var(--rule);
+  font-size: 15px; color: var(--muted);
+}
+.draft-banner {
+  background: rgba(242, 180, 65, .12); color: var(--story); text-align: center;
+  font: 600 13px var(--hud-font); text-transform: uppercase; letter-spacing: .14em; padding: 8px 16px;
+}
+
+/* ---------- type ---------- */
+main { padding-top: 56px; }
+h1 { font: 600 clamp(32px, 5vw, 48px)/1.15 var(--body-font); letter-spacing: -.01em; margin: 0 0 24px; max-width: 18ch; }
+h2 { font: 600 24px/1.3 var(--body-font); margin: 56px 0 16px; }
+h3 { font: 600 20px/1.35 var(--body-font); margin: 32px 0 8px; }
+p, ul { margin: 0 0 18px; }
+.lede { font-size: 20px; color: var(--text); max-width: var(--measure); }
+.intro, .case-study { max-width: var(--measure); }
+.case-study h1 { max-width: none; }
+.case-study ul { padding-left: 22px; }
+.case-study li { margin-bottom: 8px; }
+.case-study li::marker { color: var(--accent); }
+.todo {
+  border-left: 3px solid var(--story); background: rgba(242, 180, 65, .07);
+  padding: 10px 14px; color: var(--story); font-size: 16px;
+}
+
+/* ---------- home ---------- */
+.hero {
+  padding: 40px 0 24px;
+  /* faint, static star texture */
+  background-image:
+    radial-gradient(1px 1px at 12% 20%, rgba(207, 232, 255, .5), transparent 60%),
+    radial-gradient(1px 1px at 78% 12%, rgba(207, 232, 255, .4), transparent 60%),
+    radial-gradient(1px 1px at 64% 68%, rgba(207, 232, 255, .35), transparent 60%),
+    radial-gradient(1px 1px at 30% 82%, rgba(207, 232, 255, .3), transparent 60%),
+    radial-gradient(1.5px 1.5px at 90% 48%, rgba(207, 232, 255, .45), transparent 60%),
+    radial-gradient(1px 1px at 48% 34%, rgba(207, 232, 255, .25), transparent 60%);
+}
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn {
+  display: inline-block; padding: 11px 20px; font-size: 14px; font-weight: 600; text-decoration: none;
+  color: var(--accent); border: 1px solid rgba(95, 211, 230, .45);
+}
+.btn:hover { background: rgba(95, 211, 230, .1); color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.btn.primary:hover { background: #8de3ef; color: var(--bg); }
+
+section { margin-top: 72px; }
+section:first-child { margin-top: 0; }
+.case-study section { margin-top: 0; }
+
+.highlights { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.highlights li { border-top: 1px solid var(--rule); padding-top: 16px; font-size: 16px; color: var(--muted); }
+.highlights .num { display: block; font: 600 30px/1.2 var(--body-font); color: var(--text); margin-bottom: 8px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; }
+.card { border-top: 1px solid var(--rule); padding-top: 16px; font-size: 16px; }
+.card h3 { margin: 0 0 12px; }
+.card h3 a { color: var(--text); text-decoration: none; }
+.card h3 a:hover { color: var(--accent); }
+.card p { margin-bottom: 10px; color: var(--muted); }
+.k { display: block; font-size: 12px; font-weight: 600; color: var(--accent); }
+.more { font-size: 13px; font-weight: 600; }
+
+.map-teaser { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; border-top: 1px solid var(--rule); padding-top: 40px; }
+.map-teaser p { color: var(--muted); }
+.map-preview { width: 100%; max-width: 420px; display: block; margin: 0 auto; }
+.map-preview .l { stroke: var(--accent); stroke-opacity: .25; stroke-width: 1; }
+.map-preview .r { stroke: #9fb7ff; stroke-opacity: .2; stroke-width: 1; stroke-dasharray: 2 4; }
+.map-preview .c { fill: var(--concept); }
+.map-preview .d { fill: var(--bg); stroke: var(--accent); stroke-width: 1.5; }
+.map-preview .s { fill: var(--story); }
+
+/* ---------- case study ---------- */
+.related p { color: var(--muted); font-size: 16px; }
+.chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips a {
+  display: inline-block; font-size: 13px; font-weight: 600; padding: 5px 12px; text-decoration: none;
+  color: var(--text); border: 1px solid var(--rule);
+}
+.chips a:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (max-width: 760px) {
+  body { font-size: 17px; }
+  .site-header, .site-footer, main { padding-left: 16px; padding-right: 16px; }
+  main { padding-top: 32px; }
+  .highlights, .map-teaser { grid-template-columns: 1fr; }
+  section { margin-top: 56px; }
+}
