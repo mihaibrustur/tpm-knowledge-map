@@ -123,6 +123,21 @@ function conceptChips(ids, byId, up) {
   return items.length ? '<ul class="chips">' + items.join("") + "</ul>" : "";
 }
 
+function row(cs, up) {
+  return `<article class="work-row">
+      <div>
+        <p class="label">${esc(cs.meta.context)}</p>
+        <h2><a href="${up}work/${cs.slug}/">${esc(cs.meta.title)}</a></h2>
+        <p>${inline(cs.meta.description)}</p>
+        <p><a class="more" href="${up}work/${cs.slug}/">Read the case study</a></p>
+      </div>
+      <dl>
+        <dt class="k">Challenge</dt><dd>${inline(cs.meta.challenge)}</dd>
+        <dt class="k">Outcome</dt><dd>${inline(cs.meta.outcome)}</dd>
+      </dl>
+    </article>`;
+}
+
 function card(cs, up) {
   return `<article class="card">
       <p class="label">${esc(cs.meta.context)}</p>
@@ -200,9 +215,9 @@ function homePage(nodes, studies) {
 ${featured.length ? `
     <section aria-labelledby="h-work">
       <h2 id="h-work" class="label">Case studies</h2>
-      <div class="cards">
-    ${featured.map(cs => card(cs, up)).join("\n    ")}
-      </div>
+      ${featured.length < 3
+        ? '<div class="work-list">' + featured.map(cs => row(cs, up)).join("\n    ") + "</div>"
+        : '<div class="cards">' + featured.map(cs => card(cs, up)).join("\n    ") + "</div>"}
       <p><a class="more" href="work/">All case studies</a></p>
     </section>
 ` : ""}
@@ -233,8 +248,8 @@ function workIndex(studies) {
       <h1>My work</h1>
       <p class="lede">Case studies from programs I've worked on: what was happening, what made it hard, what I decided and what changed.</p>
     </section>
-    <div class="cards">
-    ${studies.map(cs => card(cs, up)).join("\n    ")}
+    <div class="work-list">
+    ${studies.map(cs => row(cs, up)).join("\n    ")}
     </div>`;
   return page({
     depth: 1, title: "My work · " + NAME, description: "Case studies from engineering programs: the situation, the decisions and the outcome.",

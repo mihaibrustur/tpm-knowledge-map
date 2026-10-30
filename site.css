@@ -18,7 +18,9 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
   font: 18px/1.7 var(--body-font);
+  min-height: 100vh; display: flex; flex-direction: column;
 }
+main { flex: 1; }
 a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { color: #9fe8f3; }
 a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -34,7 +36,7 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .label a { color: var(--muted); }
 
 /* ---------- header and footer ---------- */
-.site-header, .site-footer, main { max-width: 1040px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.site-header, .site-footer, main { width: 100%; max-width: 1040px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
 .site-header {
   display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between;
   padding-top: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--rule);
@@ -117,6 +119,19 @@ section:first-child { margin-top: 0; }
 .map-preview .d { fill: var(--bg); stroke: var(--accent); stroke-width: 1.5; }
 .map-preview .s { fill: var(--story); }
 
+/* ---------- work list ---------- */
+.work-list { margin-top: 48px; }
+section .work-list { margin-top: 0; }
+.work-row {
+  display: grid; grid-template-columns: 3fr 2fr; gap: 48px;
+  border-top: 1px solid var(--rule); padding: 32px 0 16px;
+}
+.work-row h2 { margin: 0 0 12px; font-size: 26px; }
+.work-row h2 a { color: var(--text); text-decoration: none; }
+.work-row h2 a:hover { color: var(--accent); }
+.work-row dl { margin: 0; font-size: 16px; color: var(--muted); }
+.work-row dd { margin: 0 0 18px; }
+
 /* ---------- case study ---------- */
 .related p { color: var(--muted); font-size: 16px; }
 .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -130,6 +145,7 @@ section:first-child { margin-top: 0; }
   body { font-size: 17px; }
   .site-header, .site-footer, main { padding-left: 16px; padding-right: 16px; }
   main { padding-top: 32px; }
-  .highlights, .map-teaser { grid-template-columns: 1fr; }
+  .highlights, .map-teaser, .work-row { grid-template-columns: 1fr; }
+  .work-row { gap: 8px; }
   section { margin-top: 56px; }
 }
