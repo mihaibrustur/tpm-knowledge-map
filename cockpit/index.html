@@ -154,22 +154,20 @@ html, body { margin: 0; height: 100%; background: #0B141C; overflow: hidden; }
 #stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: center center; }
 #stage > section { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; }
 #stage > section:not(.active) { display: none; }
-section aside { display: none; }
 .arrow-svg { align-self: center; flex: none; }
-#bar { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; gap: 8px; align-items: center; padding: 6px 8px; border-radius: 999px; background: rgba(21,36,47,0.88); border: 1px solid #2A3B48; font: 14px 'Inter', Arial, sans-serif; color: #C3D1D8; opacity: 0.25; transition: opacity 200ms; z-index: 10; }
+#bar { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; gap: 8px; align-items: center; padding: 6px 8px; border-radius: 999px; background: rgba(21,36,47,0.88); border: 1px solid #2A3B48; font: 14px 'Inter', Arial, sans-serif; color: #C3D1D8; opacity: 0.9; transition: opacity 200ms; z-index: 10; }
 #bar:hover, #bar:focus-within, body.show-bar #bar { opacity: 1; }
 #bar button { background: none; border: 0; color: inherit; font: inherit; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
 #bar a { color: inherit; text-decoration: none; padding: 6px 12px; border-radius: 999px; }
 #bar button:hover, #bar button:focus-visible, #bar a:hover, #bar a:focus-visible { background: #2A3B48; outline: none; }
 #count { min-width: 64px; text-align: center; font-variant-numeric: tabular-nums; }
-#notes { position: fixed; left: 16px; right: 16px; bottom: 72px; max-width: 900px; margin: 0 auto; max-height: 32vh; overflow: auto; padding: 16px 20px; border-radius: 12px; background: rgba(21,36,47,0.96); border: 1px solid #2A3B48; color: #E6ECEF; font: 16px/1.5 'Inter', Arial, sans-serif; z-index: 10; }
-#notes[hidden] { display: none; }
+#stage { cursor: pointer; }
 @media print {
   @page { size: 1920px 1080px; margin: 0; }
   html, body { height: auto; overflow: visible; background: none; }
   #stage { position: static; transform: none !important; width: auto; height: auto; }
   #stage > section, #stage > section:not(.active) { display: flex; position: relative; page-break-after: always; break-after: page; }
-  #bar, #notes { display: none; }
+  #bar { display: none; }
   * { animation: none !important; }
 }
 </style>
@@ -199,7 +197,6 @@ section aside { display: none; }
 <p class="lede" style="max-width:960px">One shared view of how engineering delivers, and an assistant that flags risks while there is still time to act.</p>
 </div>
 <p class="byline">Behind the Delivery</p>
-<aside>Open with the question every leader in the room has asked this quarter: “when will it be done?” This deck is about answering it from data instead of from meetings.</aside>
 </section>
 <section id="pain" class="light">
 <p class="eyebrow">Sound familiar?</p>
@@ -221,13 +218,11 @@ section aside { display: none; }
 <p class="body-l">Without shared data, planning turns into whose estimate sounds most convincing.</p>
 </div>
 </div>
-<aside>Ask the room which of the three costs them most. The answer tells you which outcome to lead with on the next slides.</aside>
 </section>
 <section id="promise" style="justify-content:center">
 <p class="eyebrow">The idea</p>
 <h2 class="statement">One shared view of how engineering delivers, and an assistant that tells you where to look.</h2>
 <p class="lede">It runs on the tools your teams already use. No new process to learn, no extra reporting.</p>
-<aside>Keep this slide short. The cockpit reads the tracker, the code host and the release pipeline, joins them, and points people at what needs attention.</aside>
 </section>
 <section id="outcomes" class="light">
 <p class="eyebrow">What you get</p>
@@ -250,7 +245,6 @@ section aside { display: none; }
 <p class="body-l">Meetings move from “when?” to priorities and trade-offs.</p>
 </div>
 </div>
-<aside>These are the benefits, not the features. If asked how forecasts work: they use each team’s real delivery history and give a range with a confidence level, not a single date.</aside>
 </section>
 <section id="how">
 <p class="eyebrow">How it works</p>
@@ -261,7 +255,6 @@ section aside { display: none; }
 <div class="card rise" style="--i:2"><p class="num">03</p><p class="big-title">Signal</p><p class="body-l">Patterns compared with each team’s own normal, not a generic target.</p></div>
 <div class="card rise" style="--i:3"><p class="num">04</p><p class="big-title">Decide</p><p class="body-l">Teams and leaders talk about what matters. The cockpit never decides for them.</p></div>
 </div>
-<aside>If someone asks about data quality: the cockpit works best when pull requests are linked to tickets. Part of the pilot is getting that in place, and the cockpit shows where links are missing.</aside>
 </section>
 <section id="signal">
 <p class="eyebrow">An example</p>
@@ -282,7 +275,6 @@ section aside { display: none; }
 <div class="def rise" style="--i:4"><h3>A question, not an order</h3><p class="small">The team decides what to do, including nothing.</p></div>
 </div>
 </div>
-<aside>The example is invented, but it is a real pattern: in one organisation, pull requests regularly waited too long for review because people lost track of them. Simple alerts fixed it and the problem did not come back.</aside>
 </section>
 <section id="trust" class="light">
 <p class="eyebrow">Built for trust</p>
@@ -293,7 +285,6 @@ section aside { display: none; }
 <div class="card rise" style="--i:2"><p class="big-title">People decide</p><p class="body-l">The assistant suggests. It does not change plans or priorities.</p></div>
 <div class="card rise" style="--i:3"><p class="big-title">Read-only to start</p><p class="body-l">It only reads from your tools until you choose otherwise.</p></div>
 </div>
-<aside>This is usually the first worry engineers raise, so say it plainly. Per-engineer stats were kept out on purpose in earlier versions, and that is what made teams trust the data.</aside>
 </section>
 <section id="proof">
 <p class="eyebrow">Proven in practice</p>
@@ -309,7 +300,6 @@ section aside { display: none; }
 </div>
 </div>
 <p class="note">Results from earlier versions built inside two organisations.</p>
-<aside>Both were built by hand for one organisation each. The pilot proposed here brings the same approach to your teams, with the assistant doing the reading that a person used to do.</aside>
 </section>
 <section id="pilot" class="light">
 <p class="eyebrow">Getting started</p>
@@ -332,7 +322,6 @@ section aside { display: none; }
 </div>
 </div>
 <p class="note">Low risk: nothing changes in how teams work until the pilot shows it is worth it.</p>
-<aside>The timeline is a proposal and can flex. The decision point at the end is the important part: the pilot has to earn its expansion.</aside>
 </section>
 <section id="needs">
 <p class="eyebrow">What it takes</p>
@@ -341,23 +330,19 @@ section aside { display: none; }
 <div class="need rise" style="--i:1"><p class="label">One or two teams</p><p class="text">Teams willing to try it and say honestly what helps.</p></div>
 <div class="need rise" style="--i:2"><p class="label">Read-only access</p><p class="text">To the tracker, the code host and the release pipeline.</p></div>
 <div class="need rise" style="--i:3"><p class="label">Thirty minutes</p><p class="text">A week, to review the warnings with each team.</p></div>
-<aside>Keep the ask small and concrete. If security asks: access is read-only, and no per-person data is shown.</aside>
 </section>
 <section id="close" class="accent" style="justify-content:center">
 <p class="eyebrow">Next step</p>
 <h2 class="statement">Let’s pick the first team.</h2>
 <p class="lede" style="color:#17232D">A short conversation to choose a pilot team, a sponsor and a start date.</p>
 <p class="byline" style="color:#17232D; margin-top:auto">Delivery Cockpit · Behind the Delivery</p>
-<aside>End on the decision, not on a summary. Propose a date for the follow-up before leaving the room.</aside>
 </section>
 </main>
-<div id="notes" hidden></div>
 <nav id="bar" aria-label="Slide controls">
 <a id="home" href="../" title="Behind the Delivery">Home</a>
 <button id="prev" aria-label="Previous slide">&#8592;</button>
 <span id="count"></span>
 <button id="next" aria-label="Next slide">&#8594;</button>
-<button id="toggle-notes" aria-pressed="false" title="Speaker notes (N)">Notes</button>
 <button id="full" title="Full screen (F)">Full screen</button>
 </nav>
 <script>
@@ -365,8 +350,6 @@ section aside { display: none; }
   var stage = document.getElementById('stage');
   var slides = Array.prototype.slice.call(stage.children);
   var count = document.getElementById('count');
-  var notes = document.getElementById('notes');
-  var notesBtn = document.getElementById('toggle-notes');
   var i = 0;
 
   function fit() {
@@ -381,14 +364,8 @@ section aside { display: none; }
     i = Math.max(0, Math.min(slides.length - 1, n));
     slides.forEach(function (s, k) { s.classList.toggle('active', k === i); });
     count.textContent = (i + 1) + ' / ' + slides.length;
-    var aside = slides[i].querySelector('aside');
-    notes.textContent = aside ? aside.textContent : 'No notes for this slide.';
     var h = '#slide-' + (i + 1);
     if (push !== false && location.hash !== h) history.replaceState(null, '', h);
-  }
-  function toggleNotes() {
-    notes.hidden = !notes.hidden;
-    notesBtn.setAttribute('aria-pressed', String(!notes.hidden));
   }
   function toggleFull() {
     if (document.fullscreenElement) document.exitFullscreen();
@@ -397,7 +374,11 @@ section aside { display: none; }
 
   document.getElementById('prev').onclick = function () { show(i - 1); };
   document.getElementById('next').onclick = function () { show(i + 1); };
-  notesBtn.onclick = toggleNotes;
+  // click the right part of a slide to go forward, the left third to go back
+  stage.addEventListener('click', function (e) {
+    var r = stage.getBoundingClientRect();
+    show(i + (e.clientX - r.left < r.width / 3 ? -1 : 1));
+  });
   document.getElementById('full').onclick = toggleFull;
 
   document.addEventListener('keydown', function (e) {
@@ -407,7 +388,6 @@ section aside { display: none; }
     else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'ArrowUp') { e.preventDefault(); show(i - 1); }
     else if (k === 'Home') show(0);
     else if (k === 'End') show(slides.length - 1);
-    else if (k === 'n' || k === 'N') toggleNotes();
     else if (k === 'f' || k === 'F') toggleFull();
   });
 
