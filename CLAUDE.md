@@ -9,6 +9,7 @@
 - `data.js`: generated `window.TPM_DATA.nodes`, loaded by the site.
 - `app.js`: force graph, drill-down, side panel, search, revisit tracking (localStorage).
 - `map/index.html`, `styles.css`: the knowledge map page and its theming (dark only, styled after a space-strategy sensors view). Old `/#node-id` links redirect to `map/#node-id`.
+- `cockpit/`: a standalone pitch deck for the delivery cockpit idea, at `/cockpit/`. Slides in `cockpit/slides/`, order in `cockpit/deck.json`, styles in `cockpit/deck.css`; rebuild `cockpit/index.html` with `node cockpit/build.js` (not part of the main build).
 - `check-names.sh`: fails if any term in the local, git-ignored `.banned-terms` appears in site files.
 
 ## Hard rules

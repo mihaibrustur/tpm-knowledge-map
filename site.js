@@ -306,7 +306,7 @@ function build(nodes, root, opts) {
   write("work/index.html", workIndex(studies));
   for (const cs of studies) write("work/" + cs.slug + "/index.html", caseStudyPage(cs, byId));
 
-  const urls = ["", "work/", "map/"].concat(studies.filter(s => !s.draft).map(s => "work/" + s.slug + "/"));
+  const urls = ["", "work/", "map/", "cockpit/"].concat(studies.filter(s => !s.draft).map(s => "work/" + s.slug + "/"));
   write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     urls.map(u => "  <url><loc>" + SITE_URL + u + "</loc></url>").join("\n") + "\n</urlset>\n");
   console.log("Wrote site pages: home, work index, " + studies.length + " case stud" + (studies.length === 1 ? "y" : "ies") +

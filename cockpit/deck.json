@@ -1,0 +1,54 @@
+{
+  "v": 5,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-24T12:00:00Z"
+  },
+  "lists": "css",
+  "format": {
+    "v": 1,
+    "shared": [
+      "project/deck.css"
+    ]
+  },
+  "title": "Delivery Cockpit",
+  "cover": "cover",
+  "order": [
+    "cover",
+    "pain",
+    "promise",
+    "outcomes",
+    "how",
+    "signal",
+    "trust",
+    "proof",
+    "pilot",
+    "needs",
+    "close"
+  ],
+  "sections": {
+    "why": {
+      "description": "The problem leaders feel and the idea in one line.",
+      "start": "cover"
+    },
+    "what": {
+      "description": "What leaders get, how it works and why teams trust it.",
+      "start": "outcomes"
+    },
+    "start": {
+      "description": "Proof, a small pilot and what it needs.",
+      "start": "proof"
+    }
+  },
+  "faces": {
+    "space-grotesk": {
+      "family": "Space Grotesk",
+      "href": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+    },
+    "inter": {
+      "family": "Inter",
+      "href": "https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    }
+  },
+  "designSystems": []
+}
