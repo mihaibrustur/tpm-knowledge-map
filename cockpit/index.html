@@ -149,6 +149,27 @@ section.light h3, section.accent h3 { color: var(--ink); }
 .light .stage .num { color: var(--amber-d); }
 .light .stage { border-top-color: var(--ink); }
 
+/* concrete flow */
+.flow { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+.flow .card { padding: 26px 24px; }
+.flow .step-title { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 34px; font-weight: 600; color: var(--ink); margin: 0 0 12px 0; }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px 0; }
+.tool { font-size: 20px; font-weight: 600; padding: 4px 10px; border-radius: 6px; margin: 0; background: #E4E9EC; color: #22313C; }
+.tool.sf { background: #DCEBF7; color: #0B4F7C; }
+.tool.jira { background: #DFE6F7; color: #1F3F8A; }
+.tool.slack { background: #F3E3EE; color: #6B1F55; }
+.tool.code { background: #E2EFE9; color: #1D5A43; }
+.loop { position: relative; height: 150px; }
+.loop svg { position: absolute; left: 0; top: 0; }
+.loop p { position: absolute; left: 50%; top: 66px; transform: translateX(-50%); margin: 0; padding: 0 20px; background: var(--paper); font-size: 24px; color: var(--ink); white-space: nowrap; }
+.headline { font-size: 28px; line-height: 1.45; margin: 8px 0 0 0; color: var(--ink); max-width: 1500px; }
+.headline b { color: var(--amber-d); }
+.checks { width: 100%; border-collapse: collapse; font-size: 24px; line-height: 1.35; color: var(--fog); }
+.checks th { text-align: left; font-size: 22px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); padding: 0 16px 12px 0; font-weight: 600; }
+.checks td { padding: 14px 16px 14px 0; border-top: 1px solid var(--line-d); vertical-align: top; }
+.checks td:first-child { font-family: 'Space Grotesk', Arial, sans-serif; font-weight: 600; color: var(--paper); font-size: 28px; }
+.checks td:last-child { color: var(--amber); }
+
 /* viewer */
 html, body { margin: 0; height: 100%; background: #0B141C; overflow: hidden; }
 #stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: center center; }
@@ -255,6 +276,39 @@ html, body { margin: 0; height: 100%; background: #0B141C; overflow: hidden; }
 <div class="card rise" style="--i:2"><p class="num">03</p><p class="big-title">Signal</p><p class="body-l">Patterns compared with each team’s own normal, not a generic target.</p></div>
 <div class="card rise" style="--i:3"><p class="num">04</p><p class="big-title">Decide</p><p class="body-l">Teams and leaders talk about what matters. The cockpit never decides for them.</p></div>
 </div>
+</section>
+<section id="flow" class="light">
+<p class="eyebrow">In practice</p>
+<h2>Follow one customer issue through your tools</h2>
+<div class="flow">
+<div class="card rise" style="--i:0"><p class="num">01</p><p class="step-title">Raised</p><div class="tools"><p class="tool sf">Salesforce</p></div><p class="body">Support logs the customer’s case.</p></div>
+<div class="card rise" style="--i:1"><p class="num">02</p><p class="step-title">Escalated</p><div class="tools"><p class="tool jira">Jira</p><p class="tool slack">Slack</p></div><p class="body">The case becomes a Jira ticket, and the team channel gets an alert.</p></div>
+<div class="card rise" style="--i:2"><p class="num">03</p><p class="step-title">Triaged</p><div class="tools"><p class="tool jira">Jira</p></div><p class="body">Engineering confirms it: a bug, a configuration issue or a request.</p></div>
+<div class="card rise" style="--i:3"><p class="num">04</p><p class="step-title">Built</p><div class="tools"><p class="tool jira">Jira</p><p class="tool code">Code host</p></div><p class="body">A small pull request, linked to the ticket, is reviewed and merged.</p></div>
+<div class="card rise" style="--i:4"><p class="num">05</p><p class="step-title">Released</p><div class="tools"><p class="tool code">CI</p><p class="tool slack">Slack</p></div><p class="body">The fix ships, and the channel gets a short release note.</p></div>
+<div class="card rise" style="--i:5"><p class="num">06</p><p class="step-title">Closed</p><div class="tools"><p class="tool slack">Slack</p><p class="tool sf">Salesforce</p></div><p class="body">The case is updated, and support tells the customer.</p></div>
+</div>
+<div class="loop">
+<svg width="1664" height="150" viewBox="0 0 1664 150" aria-hidden="true">
+<path d="M1530 6 V78 H134 V22" fill="none" stroke="#985300" stroke-width="3" stroke-dasharray="10 8"/>
+<path d="M122 26 L134 6 L146 26 Z" fill="#985300"/>
+</svg>
+<p>Back to Salesforce: the case updates itself when the fix ships</p>
+</div>
+<p class="headline">The number that matters to customers: <b>time from report to “it’s fixed”</b>. The cockpit splits it into waiting and working time at every step, so you see where it really goes.</p>
+</section>
+<section id="checks">
+<p class="eyebrow">Measures and warnings</p>
+<h2>What we check at each step</h2>
+<table class="checks">
+<tr><th style="width:15%">Step</th><th style="width:45%">What we check</th><th style="width:40%">Example warning</th></tr>
+<tr><td>Raised</td><td>Cases per week by type, and the share escalated to engineering</td><td>Escalations doubled after the last release</td></tr>
+<tr><td>Escalated</td><td>Time from case to Jira ticket; tickets missing steps to reproduce</td><td>Cases wait days in support before engineering sees them</td></tr>
+<tr><td>Triaged</td><td>Time to triage; how many “bugs” turn out to be configuration or usage</td><td>Half of this month’s bugs were closed as configuration</td></tr>
+<tr><td>Built</td><td>Cycle time, review wait, work in progress, pull requests linked to tickets</td><td>Fixes are waiting days for a first review</td></tr>
+<tr><td>Released</td><td>Time from merge to release; fixes that reopen or cause regressions</td><td>The same issue reopened after the release</td></tr>
+<tr><td>Closed</td><td>Time from release to customer update; total time from report to fix</td><td>A fix shipped, but the customer wasn’t told for a week</td></tr>
+</table>
 </section>
 <section id="signal">
 <p class="eyebrow">An example</p>

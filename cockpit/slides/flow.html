@@ -1,0 +1,21 @@
+<section id="flow" class="light">
+<p class="eyebrow">In practice</p>
+<h2>Follow one customer issue through your tools</h2>
+<div class="flow">
+<div class="card rise" style="--i:0"><p class="num">01</p><p class="step-title">Raised</p><div class="tools"><p class="tool sf">Salesforce</p></div><p class="body">Support logs the customer’s case.</p></div>
+<div class="card rise" style="--i:1"><p class="num">02</p><p class="step-title">Escalated</p><div class="tools"><p class="tool jira">Jira</p><p class="tool slack">Slack</p></div><p class="body">The case becomes a Jira ticket, and the team channel gets an alert.</p></div>
+<div class="card rise" style="--i:2"><p class="num">03</p><p class="step-title">Triaged</p><div class="tools"><p class="tool jira">Jira</p></div><p class="body">Engineering confirms it: a bug, a configuration issue or a request.</p></div>
+<div class="card rise" style="--i:3"><p class="num">04</p><p class="step-title">Built</p><div class="tools"><p class="tool jira">Jira</p><p class="tool code">Code host</p></div><p class="body">A small pull request, linked to the ticket, is reviewed and merged.</p></div>
+<div class="card rise" style="--i:4"><p class="num">05</p><p class="step-title">Released</p><div class="tools"><p class="tool code">CI</p><p class="tool slack">Slack</p></div><p class="body">The fix ships, and the channel gets a short release note.</p></div>
+<div class="card rise" style="--i:5"><p class="num">06</p><p class="step-title">Closed</p><div class="tools"><p class="tool slack">Slack</p><p class="tool sf">Salesforce</p></div><p class="body">The case is updated, and support tells the customer.</p></div>
+</div>
+<div class="loop">
+<svg width="1664" height="150" viewBox="0 0 1664 150" aria-hidden="true">
+<path d="M1530 6 V78 H134 V22" fill="none" stroke="#985300" stroke-width="3" stroke-dasharray="10 8"/>
+<path d="M122 26 L134 6 L146 26 Z" fill="#985300"/>
+</svg>
+<p>Back to Salesforce: the case updates itself when the fix ships</p>
+</div>
+<p class="headline">The number that matters to customers: <b>time from report to “it’s fixed”</b>. The cockpit splits it into waiting and working time at every step, so you see where it really goes.</p>
+<aside>Walk through one real recent case if you have one. The point is that every step already leaves a trace in a tool; nobody has joined the traces up. Planned roadmap work follows the same path from step 3 onwards.</aside>
+</section>

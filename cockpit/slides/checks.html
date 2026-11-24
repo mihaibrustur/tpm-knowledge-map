@@ -1,0 +1,14 @@
+<section id="checks">
+<p class="eyebrow">Measures and warnings</p>
+<h2>What we check at each step</h2>
+<table class="checks">
+<tr><th style="width:15%">Step</th><th style="width:45%">What we check</th><th style="width:40%">Example warning</th></tr>
+<tr><td>Raised</td><td>Cases per week by type, and the share escalated to engineering</td><td>Escalations doubled after the last release</td></tr>
+<tr><td>Escalated</td><td>Time from case to Jira ticket; tickets missing steps to reproduce</td><td>Cases wait days in support before engineering sees them</td></tr>
+<tr><td>Triaged</td><td>Time to triage; how many “bugs” turn out to be configuration or usage</td><td>Half of this month’s bugs were closed as configuration</td></tr>
+<tr><td>Built</td><td>Cycle time, review wait, work in progress, pull requests linked to tickets</td><td>Fixes are waiting days for a first review</td></tr>
+<tr><td>Released</td><td>Time from merge to release; fixes that reopen or cause regressions</td><td>The same issue reopened after the release</td></tr>
+<tr><td>Closed</td><td>Time from release to customer update; total time from report to fix</td><td>A fix shipped, but the customer wasn’t told for a week</td></tr>
+</table>
+<aside>Each warning goes to one owner in Slack, with the cases and tickets behind it. Thresholds are set against each team’s own normal during the first weeks of the pilot, not against a generic target.</aside>
+</section>
